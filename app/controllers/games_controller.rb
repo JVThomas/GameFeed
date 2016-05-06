@@ -6,6 +6,18 @@ class GamesController < ApplicationController
     binding.pry
   end
 
+  def index
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+  def show
+  end
+
   private
 
   def game_params

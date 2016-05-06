@@ -28,5 +28,6 @@ module GameFeed
     end
 
     config.angular_templates.ignore_prefix  = %w(app/)
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
   end
 end
