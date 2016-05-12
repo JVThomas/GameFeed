@@ -1,4 +1,7 @@
-<h1>Home {{home.user.username}}</h1>
-<a href="" ng-click = "home.logout()">Logout</a>
+<navbar-directive></navbar-directive>
+<div class = "container">
+  <h1>Home {{home.user.username}}</h1>
+  <a href="" ng-click = "home.logout()">Logout</a>
 
-<ui-view></ui-view>
+  <ui-view></ui-view>
+</div>
