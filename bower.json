@@ -8,8 +8,7 @@
     "angular-resource": "^1.5.3",
     "angular-messages": "^1.5.3",
     "angular-cookies": "^1.5.3",
-    "angular-devise": "latest",
-    "angular-materialize": "latest"
+    "angular-devise": "latest"
   },
   "private": true
 }
