@@ -19,7 +19,6 @@
 //= require angular-messages/angular-messages
 //= require angular-resource/angular-resource
 //= require angular-ui-router/release/angular-ui-router
-//= require angular-materialize/src/angular-materialize
 //= require materialize
 //= require turbolinks
 //= require_tree .

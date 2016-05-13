@@ -5,7 +5,7 @@ class GiantbombService
       req.params['format'] = "json"
       req.params['query'] = query
       req.params['resources'] = "game"
-      req.params['field_list'] = "id,name,image,platforms,deck,original_release_date,expected_release_year"
+      req.params['field_list'] = "id,name,image,platforms,description,original_release_date,expected_release_year"
     end
     @result = JSON.parse(@resp.body)
   end

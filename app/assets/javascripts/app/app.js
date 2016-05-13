@@ -1,5 +1,5 @@
 angular
-  .module('app',['ui.router','ui.materialize','Devise','templates', 'ngResource', 'ngCookies', 'ngMessages', 'templates'])
+  .module('app',['ui.router','Devise','templates', 'ngResource', 'ngCookies', 'ngMessages', 'templates'])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
       .state('welcome',{
