@@ -1,6 +1,7 @@
 function HomeController($scope,$state,Auth,$cookies){
   var ctrl = this;
   ctrl.user;
+  ctrl.display = true;
 
   ctrl.logout = function(){
     Auth.logout().then(function(resp){

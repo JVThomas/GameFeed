@@ -1,7 +1,7 @@
 class GiantbombService
   def games(query)
     @resp = Faraday.get 'https://www.giantbomb.com/api/search/' do |req|
-      req.params['client_id'] = ENV['API_KEY']
+      req.params['api_key'] = ENV['API_KEY']
       req.params['format'] = "json"
       req.params['query'] = query
       req.params['resources'] = "game"
@@ -9,3 +9,4 @@ class GiantbombService
     end
     @result = JSON.parse(@resp.body)
   end
+end

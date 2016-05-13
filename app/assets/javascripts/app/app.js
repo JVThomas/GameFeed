@@ -1,5 +1,5 @@
 angular
-  .module('app',['ui.router','Devise','templates', 'ngResource', 'ngCookies', 'ngMessages', 'templates'])
+  .module('app',['ui.router','ui.materialize','Devise','templates', 'ngResource', 'ngCookies', 'ngMessages', 'templates'])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
       .state('welcome',{
@@ -49,6 +49,21 @@ angular
         controller: 'HomeController as home',
         templateUrl: 'home/home.html',
          onEnter: ['$state', 'Auth', function($state, Auth) {
+          Auth.currentUser().then(
+            function (user){
+             console.log(user);
+            }, function (error){
+              console.log(error.statusText);
+              $state.go('welcome');
+            }
+          );
+        }]
+      })
+      .state('home.search',{
+        url: '/search',
+        controller: 'SearchController as search',
+        templateUrl: 'search/search.html',
+        onEnter: ['$state', 'Auth', function($state, Auth) {
           Auth.currentUser().then(
             function (user){
              console.log(user);

@@ -1,0 +1,12 @@
+<div class="row">
+  <form class="col s12" name = "searchForm">
+    <div ng-if = "searchForm.query.$touched" ng-show = "searchForm.query.$error.required">Query is required</div>
+    <div class = "row">
+      <div class = "input-field col s12">
+        <label for = "query">Query</label>
+        <input name = "query" type = "text" ng-model = "search.query" required = "required">
+      </div>
+    </div>
+    <button ng-click = "search.findGame()">Search</button>
+  </form>
+</div>

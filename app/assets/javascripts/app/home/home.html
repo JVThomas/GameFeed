@@ -1,7 +1,8 @@
 <navbar-directive></navbar-directive>
 <div class = "container">
-  <h1>Home {{home.user.username}}</h1>
-  <a href="" ng-click = "home.logout()">Logout</a>
-
+  <div>
+    <h1>Home {{home.user.username}}</h1>
+    <a href = "" ui-sref = "home.search" ng-click = "home.hidePanel()"> Search for a game </a>
+  </div>
   <ui-view></ui-view>
 </div>
