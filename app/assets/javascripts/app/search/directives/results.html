@@ -1,0 +1,9 @@
+<div class = "row gameResults" ng-show = "gamesResults.resultsFoundBool">
+    <ul class = "collection">
+      <li ng-repeat = "game in gamesResults.resultList" games-item = "game" class = "collection-item avatar"></li>
+    </ul>
+</div>
+
+<div class = "row" ng-show = "!gamesResults.resultsFoundBool">
+  No results found
+</div>

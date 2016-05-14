@@ -21,4 +21,4 @@
 //= require angular-ui-router/release/angular-ui-router
 //= require materialize
 //= require turbolinks
-//= require_tree .
+//= require_tree 

@@ -3,7 +3,7 @@ function SearchGamesController(GiantbombService, $rootScope){
   ctrl.gameList = []
   ctrl.panelToggle = false;
 
-  this.findGame = function($rootScope){
+  this.findGame = function(){
     ctrl.gameList = GiantbombService.getGames(ctrl.query).then(function(results){
       $rootScope.$broadcast('results', results);
       ctrl.panelToggle = true;
