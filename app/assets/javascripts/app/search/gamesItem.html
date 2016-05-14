@@ -1,0 +1,8 @@
+<img src= '{{gamesItem.game.icon}}' alt="">
+<span class="title">{{gamesItem.game.title}}</span>
+<span>{{gamesItem.game.deck}}</span>
+<p>{{gamesItem.game.platforms.join(", ")}} <br>
+   {{gamesItem.game.release_date}}<br>
+   <button ng-click = "gamesItem.viewGame()">View Game</button>
+</p>
+

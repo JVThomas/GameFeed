@@ -4,9 +4,13 @@
     <div class = "row">
       <div class = "input-field col s12">
         <label for = "query">Query</label>
-        <input name = "query" type = "text" ng-model = "search.query" required = "required">
+        <input name = "query" type = "text" ng-model = "searchGames.query" required = "required">
       </div>
     </div>
-    <button ng-click = "search.findGame()">Search</button>
+    <button ng-click = "searchGames.findGame()">Search</button>
   </form>
+</div>
+
+<div class = "row" ng-show = "searchGames.togglePanel()">
+  <games-results></games-results>
 </div>
