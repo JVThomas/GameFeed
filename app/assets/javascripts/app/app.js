@@ -1,6 +1,6 @@
 angular
-  .module('app',['ui.router','Devise','ngResource', 'ngCookies', 'ngMessages', 'templates'])
-  .config(function($stateProvider, $urlRouterProvider){
+  .module('app',['ui.router','Devise','ngResource', 'ngCookies', 'ngMessages', 'templates', 'ngSanitize'])
+  .config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider){
     $stateProvider
       .state('welcome',{
         url:'/',
@@ -73,6 +73,21 @@ angular
             }
           );
         }]
+      })
+      .state('home.showGame',{
+        url: '/games/:id',
+        controller: 'ShowGameController as showGame',
+        templateUrl: 'game/showGame.html',
+        onEnter: ['$state', 'Auth', function($state, Auth) {
+          Auth.currentUser().then(
+            function (user){
+             console.log(user);
+            }, function (error){
+              console.log(error.statusText);
+              $state.go('welcome');
+            }
+          );
+        }]
       });
       $urlRouterProvider.otherwise('/');
-  });
+  }]);

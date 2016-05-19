@@ -7,7 +7,7 @@
         <input name = "query" type = "text" ng-model = "searchGames.query" required = "required">
       </div>
     </div>
-    <button ng-click = "searchGames.findGame()">Search</button>
+    <button class="waves-effect waves-light btn" ng-click = "searchGames.findGame()" ng-disabled = "searchForm.$invalid">Search</button>
   </form>
 </div>
 

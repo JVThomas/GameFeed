@@ -6,7 +6,7 @@ function gamesItem($state) {
       item: "=gamesItem"
     },
     controllerAs: 'gamesItem',
-    controller: function($state){
+    controller: ['$state', function($state){
       var ctrl = this;
       ctrl.game = {};
       ctrl.item.image !== null ? ctrl.game.icon = 'http://static.giantbomb.com' + ctrl.item["image"]["icon_url"] : ctrl.game.icon = "";
@@ -23,14 +23,13 @@ function gamesItem($state) {
       ctrl.game.deck = ctrl.item["deck"];
       ctrl.game.description = ctrl.item["description"];
       ctrl.item["original_release_date"] !== null ? ctrl.game.release_date = ctrl.item["original_release_date"] : ctrl.game.release_date = "N/A";
-      ctrl.game.giantbombID = ctrl.item["id"]; 
-
-      ctrl.viewGame = function(){
-        debugger;
-      }
-    }
+      ctrl.game.giantbombID = ctrl.item["id"];
+      ctrl.game.detailURL = ctrl.item["api_detail_url"];
+    }]
   }
 }
+
+gamesItem.$inject = ['$state'];
 
 angular
   .module('app')

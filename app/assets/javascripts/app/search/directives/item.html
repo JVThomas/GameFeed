@@ -2,8 +2,8 @@
 <img src= '{{gamesItem.game.icon}}' alt="" class="circle">
 <span class="title">{{gamesItem.game.title}}</span><br>
 <p>{{gamesItem.game.deck}}<br/>
-   Platforms: {{gamesItem.game.platforms.join(", ")}} <br/>
-   Release Date: {{gamesItem.game.release_date}}<br/>
-   <button ng-click = "gamesItem.viewGame()">View Game</button>
+   <b>Platforms:</b> {{gamesItem.game.platforms.join(", ")}}<br/>
+   <b>Release Date</b>: {{gamesItem.game.release_date}}<br/>
+   <a href = "" ui-sref = "home.showGame({url: gamesItem.game.detailURL, id: gamesItem.game.giantbombID})" class="waves-effect waves-light btn" >View Game</a> 
 </p>
 

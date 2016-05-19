@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'application#angular'
-  get 'games/search', to: 'giantbomb#search'
+  get 'games/search', to: 'giantbomb#games'
+  get 'game/search', to: 'giantbomb#game'
   resources :games, only:[:create, :update, :index, :show, :destroy]
   resources :genres, only:[:create, :index, :show]
   resources :developers, only: [:create, :index, :show]
