@@ -11,7 +11,7 @@ class GiantbombService
   end
 
   def game(url)
-    @resp = Faraday.get url do |req|
+    @resp = Faraday.get "https://www.giantbomb.com/api/game/#{url}/" do |req|
       req.params['api_key'] = ENV['API_KEY']
       req.params['format'] = "json"
       req.params['resources'] = "game"

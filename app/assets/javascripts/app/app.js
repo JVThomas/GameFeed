@@ -75,7 +75,7 @@ angular
         }]
       })
       .state('home.showGame',{
-        url: '/games/:id',
+        url: '/games/:linkID',
         controller: 'ShowGameController as showGame',
         templateUrl: 'game/showGame.html',
         onEnter: ['$state', 'Auth', function($state, Auth) {
@@ -87,11 +87,7 @@ angular
               $state.go('welcome');
             }
           );
-        }],
-        params:{
-          id:null,
-          link:null
-        }
+        }]
       });
       $urlRouterProvider.otherwise('/');
   }]);

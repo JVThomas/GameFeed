@@ -4,9 +4,8 @@ function ShowGameController ($stateParams, GiantbombService){
   setGame();
 
   function setGame(){
-    GiantbombService.getGame($stateParams.link).then(function(resp){
+    GiantbombService.getGame($stateParams.linkID).then(function(resp){
       ctrl.game = resp.data.results;
-      debugger;
     },function(error){
       alert(error.statusText);
     });

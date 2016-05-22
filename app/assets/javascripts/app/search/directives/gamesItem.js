@@ -24,7 +24,9 @@ function gamesItem($state) {
       ctrl.game.description = ctrl.item["description"];
       ctrl.item["original_release_date"] !== null ? ctrl.game.release_date = ctrl.item["original_release_date"] : ctrl.game.release_date = "N/A";
       ctrl.game.giantbombID = ctrl.item["id"];
-      ctrl.game.detailURL = ctrl.item["api_detail_url"];
+       //see if I can extract the endpoint id
+      linkArr = ctrl.item["api_detail_url"].split("/");
+      ctrl.game.detailID = linkArr[linkArr.length-2];
     }]
   }
 }

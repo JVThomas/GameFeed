@@ -1,4 +1,3 @@
-require 'pry'
 class GiantbombController < ApplicationController
   def games
     giantbomb = GiantbombService.new
