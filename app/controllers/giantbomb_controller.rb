@@ -1,3 +1,4 @@
+require 'pry'
 class GiantbombController < ApplicationController
   def games
     giantbomb = GiantbombService.new
@@ -7,7 +8,7 @@ class GiantbombController < ApplicationController
 
   def game
     giantbomb = GiantbombService.new
-    @result = giantbomb.game(params[:url])
+    @result = giantbomb.game(params[:data])
     render json: @result
   end
 end

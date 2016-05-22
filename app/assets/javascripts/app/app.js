@@ -87,7 +87,11 @@ angular
               $state.go('welcome');
             }
           );
-        }]
+        }],
+        params:{
+          id:null,
+          link:null
+        }
       });
       $urlRouterProvider.otherwise('/');
   }]);

@@ -1,9 +1,19 @@
-function ShowGameController ($stateParams){
+function ShowGameController ($stateParams, GiantbombService){
   var ctrl = this;
-  ctrl.game = $stateParams.game
+
+  setGame();
+
+  function setGame(){
+    GiantbombService.getGame($stateParams.link).then(function(resp){
+      ctrl.game = resp.data.results;
+      debugger;
+    },function(error){
+      alert(error.statusText);
+    });
+  }
 }
 
-ShowGameController.$inject = ['$stateParams'];
+ShowGameController.$inject = ['$stateParams', 'GiantbombService'];
 
 angular
   .module('app')

@@ -11,7 +11,7 @@ function GiantbombService ($http){
   this.getGame = function(url){
     return $http.get('http://localhost:3000/game/search.json', 
       {params:
-        {url: url}
+        {data: url}
       }
     );
   }
