@@ -9,7 +9,7 @@ function gamesItem($state) {
     controller: ['$state', function($state){
       var ctrl = this;
       ctrl.game = {};
-      ctrl.item.image !== null ? ctrl.game.icon = 'http://static.giantbomb.com' + ctrl.item["image"]["icon_url"] : ctrl.game.icon = "";
+      ctrl.item.image !== null ? ctrl.game.icon = ctrl.item["image"]["icon_url"] : ctrl.game.icon = "";
       ctrl.game.title = ctrl.item["name"];
       ctrl.game.platforms = [];
       if (ctrl.item["platforms"] === null || ctrl.item["platforms"].length === 0){

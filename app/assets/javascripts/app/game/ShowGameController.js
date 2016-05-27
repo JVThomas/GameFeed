@@ -6,6 +6,8 @@ function ShowGameController ($stateParams, GiantbombService){
   function setGame(){
     GiantbombService.getGame($stateParams.linkID).then(function(resp){
       ctrl.game = resp.data.results;
+      debugger;
+      ctrl.game.image !== null ? ctrl.game.icon = ctrl.game["image"]["thumb_url"] : ctrl.game.icon = "";
     },function(error){
       alert(error.statusText);
     });

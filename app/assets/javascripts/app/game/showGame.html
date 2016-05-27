@@ -1,1 +1,5 @@
-<h3 ng-bind = "showGame.game.name">Game</h3>
+<div class = "gameDeck valign-wrapper">
+  <img src = "{{showGame.game.icon}}">
+  <h2 ng-bind = "showGame.game.name" class = "center-align gameTitle">Game</h2>
+</div><br>
+<div class = "gameDescription" ng-bind-html = "showGame.game.description"></div>
