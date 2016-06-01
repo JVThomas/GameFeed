@@ -13,7 +13,7 @@ function gamesItem($state) {
       ctrl.game.title = ctrl.item["name"];
       ctrl.game.platforms = [];
       if (ctrl.item["platforms"] === null || ctrl.item["platforms"].length === 0){
-        ctrl.item["platforms"] = 'N/A';
+        ctrl.game["platforms"].push("N/A");
       }
       else{
         for(i = 0; i < ctrl.item["platforms"].length; i++){
@@ -24,7 +24,7 @@ function gamesItem($state) {
       ctrl.game.description = ctrl.item["description"];
       ctrl.item["original_release_date"] !== null ? ctrl.game.release_date = ctrl.item["original_release_date"] : ctrl.game.release_date = "N/A";
       ctrl.game.giantbombID = ctrl.item["id"];
-       //see if I can extract the endpoint id
+       //need to add developers to display
       linkArr = ctrl.item["api_detail_url"].split("/");
       ctrl.game.detailID = linkArr[linkArr.length-2];
     }]
