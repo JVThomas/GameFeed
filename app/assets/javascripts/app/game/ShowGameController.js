@@ -16,7 +16,6 @@ function ShowGameController ($stateParams, GiantbombService, TwitchService){
 
   function findChannels(title){
     TwitchService.getChannels(title).then(function(resp){
-      debugger;
       ctrl.streams = resp.data.streams;
     },function(error){
       alert(error.statusText);

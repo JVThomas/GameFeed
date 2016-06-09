@@ -14,3 +14,13 @@
  *= require_self
  *= require materialize
  */
+
+/*/////////////STYLING//////////////////////*/
+
+.streamContainer{
+  margin: 2em auto;
+}
+
+.streamDetails{
+  margin-left: 2em;
+}
