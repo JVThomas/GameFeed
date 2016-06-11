@@ -26,18 +26,23 @@ function ShowGameController ($stateParams, GiantbombService, TwitchService){
   }
 
   function nextChannels(nextLink){
-    TwitchService.channelPagination(nextLink).then(function(resp){
-    }, function(error){
-      alert(error.statusText);
-    });
+    debugger;
+    ctrl.channelPagination(nextLink)
   }
 
   function prevChannels(prevLink){
-    TwitchService.channelPagination(prevLink).then(function(resp){
-    }, function(error){
-      alert(error.statusText);
-    });
+    debugger;
+    ctrl.channelPagination(prevLink)
   }
+
+  function channelPagination(link){
+    debugger;
+    TwitchService.channelPagination(link).then(function(resp){
+      }, function(error){
+        ctrl.streams = resp.streams
+        alert(error.statusText);
+      });  
+    }
 }
 
 ShowGameController.$inject = ['$stateParams', 'GiantbombService', 'TwitchService'];
