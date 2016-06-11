@@ -1,48 +1,42 @@
 function ShowGameController ($stateParams, GiantbombService, TwitchService){
   var ctrl = this;
 
-  setGame();
-
-  function setGame(){
+  ctrl.setGame = function (){
     ctrl.activePanel = true;
     GiantbombService.getGame($stateParams.linkID).then(function(resp){
       ctrl.game = resp.data.results;
       ctrl.game.image !== null ? ctrl.game.icon = ctrl.game["image"]["thumb_url"] : ctrl.game.icon = "";
-      findChannels(ctrl.game.name);
+      ctrl.findChannels(ctrl.game.name);
     },function(error){
       alert(error.statusText);
     });
   }
 
-  function findChannels(title){
+  ctrl.findChannels = function(title){
     TwitchService.getChannels(title).then(function(resp){
-      ctrl.nextLink = resp.data._links.next;
-      ctrl.prevLink = resp.data._links.prev;
-      debugger;
+      ctrl.setLinks(resp.data._links);
       ctrl.streams = resp.data.streams;
     },function(error){
       alert(error.statusText);
     });
   }
 
-  function nextChannels(nextLink){
-    debugger;
-    ctrl.channelPagination(nextLink)
-  }
-
-  function prevChannels(prevLink){
-    debugger;
-    ctrl.channelPagination(prevLink)
-  }
-
-  function channelPagination(link){
-    debugger;
+  ctrl.channelPagination = function(link){
     TwitchService.channelPagination(link).then(function(resp){
-      }, function(error){
-        ctrl.streams = resp.streams
-        alert(error.statusText);
-      });  
-    }
+      ctrl.setLinks(resp.data._links);
+      ctrl.streams = resp.data.streams
+    }, function(error){
+      alert(error.statusText);
+    });  
+  }
+
+  ctrl.setLinks = function(links){
+    debugger;
+    ctrl.nextLink = links.next;
+    ctrl.prevLink = links.prev;
+  }
+
+  ctrl.setGame();
 }
 
 ShowGameController.$inject = ['$stateParams', 'GiantbombService', 'TwitchService'];

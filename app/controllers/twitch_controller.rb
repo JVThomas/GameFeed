@@ -7,8 +7,8 @@ class TwitchController < ApplicationController
     render json: @result
   end
 
-  def channel
-    @result = @twitch_service.pagination(params[:page])
+  def pagination
+    @result = @twitch_service.pagination(params[:link])
     render json: @result
   end
 

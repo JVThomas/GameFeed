@@ -8,7 +8,7 @@ class TwitchService
   end
 
   def pagination(link)
-    @resp = Faraday.get '#{link}'
+    @resp = Faraday.get link
     @result = JSON.parse(@resp.body)
   end
 end

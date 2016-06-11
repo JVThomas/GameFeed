@@ -14,8 +14,8 @@
 </div>
 <div class = "gameDescription" ng-bind-html = "showGame.game.description" ng-if = "showGame.activePanel === true"></div>
 <div class = "gameChannels" ng-if = "showGame.activePanel === false">
-  <a href="" ng-click = "showGame.prevChannels()" ng-show = "showGame.prevLink !== 'undefined'">Prev</a>
-  <a href="" ng-click = "showGame.nextChannels()" ng-show = "showGame.nextLink !== 'undefined'">Next</a>
+  <a ng-click = "showGame.channelPagination(showGame.prevLink)" ng-show = "showGame.prevLink !== undefined">Prev</a>
+  <a ng-click = "showGame.channelPagination(showGame.nextLink)" ng-show = "showGame.nextLink !== undefined">Next</a>
   <div ng-show = "showGame.streams.length === 0"><h4>No results found</h4></div>
   <ul ng-show = "showGame.streams.length > 0" >
     <li ng-repeat = "stream in showGame.streams" stream-directive = "stream"></li>
