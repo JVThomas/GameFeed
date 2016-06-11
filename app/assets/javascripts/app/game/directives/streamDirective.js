@@ -8,7 +8,7 @@ function streamDirective(){
     templateUrl: 'game/directives/stream.html',
     controller: function(){
       var ctrl = this;
-      ctrl.stream.channel.status = ctrl.stream.channel.status.substr(0,45);
+      ctrl.stream.channel.status = ctrl.stream.channel.status.substr(0,42) + "...";
     }
   }
 }

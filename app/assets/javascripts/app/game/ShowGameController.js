@@ -16,8 +16,25 @@ function ShowGameController ($stateParams, GiantbombService, TwitchService){
 
   function findChannels(title){
     TwitchService.getChannels(title).then(function(resp){
+      ctrl.nextLink = resp.data._links.next;
+      ctrl.prevLink = resp.data._links.prev;
+      debugger;
       ctrl.streams = resp.data.streams;
     },function(error){
+      alert(error.statusText);
+    });
+  }
+
+  function nextChannels(nextLink){
+    TwitchService.channelPagination(nextLink).then(function(resp){
+    }, function(error){
+      alert(error.statusText);
+    });
+  }
+
+  function prevChannels(prevLink){
+    TwitchService.channelPagination(prevLink).then(function(resp){
+    }, function(error){
       alert(error.statusText);
     });
   }

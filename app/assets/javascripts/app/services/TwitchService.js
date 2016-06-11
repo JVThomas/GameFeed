@@ -7,6 +7,12 @@ function TwitchService ($http) {
       }
     );
   }
+
+  this.channelPagination = function(link){
+    return $http.get('http://localhost:3000/game/page.json',
+      {params: {link:link} }
+    );
+  }
 }
 
 angular

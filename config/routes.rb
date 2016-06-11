@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'games/search', to: 'giantbomb#games'
   get 'game/search', to: 'giantbomb#game'
   get 'game/channels', to: 'twitch#channels'
+  get 'game/page', to: 'twitch#pagination'
   resources :games, only:[:create, :update, :index, :show, :destroy]
   resources :genres, only:[:create, :index, :show]
   resources :developers, only: [:create, :index, :show]
