@@ -1,12 +1,13 @@
-function ShowGameController ($stateParams, GiantbombService, TwitchService){
+function ShowGameController ($stateParams, GiantbombService, TwitchService, BingService){
   var ctrl = this;
 
   ctrl.setGame = function (){
-    ctrl.activePanel = true;
+    ctrl.activePanel = 1;
     GiantbombService.getGame($stateParams.linkID).then(function(resp){
       ctrl.game = resp.data.results;
       ctrl.game.image !== null ? ctrl.game.icon = ctrl.game["image"]["thumb_url"] : ctrl.game.icon = "";
       ctrl.findChannels(ctrl.game.name);
+      ctrl.findNews(ctrl.game.name);
     },function(error){
       alert(error.statusText);
     });
@@ -30,8 +31,15 @@ function ShowGameController ($stateParams, GiantbombService, TwitchService){
     });  
   }
 
+  ctrl.findNews = function(title){
+    BingService.getNews(title).then(function(resp){
+      ctrl.news = resp.data.d.results[0].News;
+    }, function(error){
+      alert(error.statusText);
+    });
+  }
+
   ctrl.setLinks = function(links){
-    debugger;
     ctrl.nextLink = links.next;
     ctrl.prevLink = links.prev;
   }
@@ -39,7 +47,7 @@ function ShowGameController ($stateParams, GiantbombService, TwitchService){
   ctrl.setGame();
 }
 
-ShowGameController.$inject = ['$stateParams', 'GiantbombService', 'TwitchService'];
+ShowGameController.$inject = ['$stateParams', 'GiantbombService', 'TwitchService', 'BingService'];
 
 angular
   .module('app')
