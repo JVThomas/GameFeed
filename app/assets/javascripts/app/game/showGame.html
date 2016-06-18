@@ -22,4 +22,8 @@
     <li ng-repeat = "stream in showGame.streams" stream-directive = "stream"></li>
   </ul>
 </div>
-<div class = "gameNews" ng-if = "showGame.activePanel === 3"></div>
+<div class = "gameNews" ng-if = "showGame.activePanel === 3">
+  <ul class="collection">
+    <li ng-repeat = "headline in showGame.news" news-directive = "headline" class = "collection-item"></li>
+  </ul>
+</div>
