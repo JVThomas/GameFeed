@@ -45,10 +45,12 @@ gem 'twitch', '~> 0.1.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'rspec-rails'
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'pry'
   gem 'capybara'
+  gem 'factory_girl_rails'
 end
 
 group :development do
