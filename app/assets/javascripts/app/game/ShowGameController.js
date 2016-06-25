@@ -34,7 +34,6 @@ function ShowGameController ($stateParams, GiantbombService, TwitchService, Bing
   ctrl.findNews = function(title){
     BingService.getNews(title).then(function(resp){
       ctrl.news = resp.data.d.results[0].News;
-      debugger;
     }, function(error){
       alert(error.statusText);
     });

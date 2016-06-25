@@ -2,15 +2,16 @@ Rails.application.routes.draw do
   resources :games
   devise_for :users
   root 'application#angular'
-  get 'games/search', to: 'giantbomb#games'
-  get 'game/search', to: 'giantbomb#game'
-  get 'game/channels', to: 'twitch#channels'
-  get 'game/page', to: 'twitch#pagination'
-  get 'game/news', to: 'bing#news'
   resources :games, only:[:create, :update, :index, :show, :destroy]
   resources :genres, only:[:create, :index, :show]
   resources :developers, only: [:create, :index, :show]
   resources :platforms, only: [:create, :index, :show]
+  get 'giantbomb/games/search', to: 'giantbomb#games'
+  get 'giantbomb/game/search.json', to: 'giantbomb#game'
+  get 'twitch/channels.json', to: 'twitch#channels'
+  get 'twitch/page.json', to: 'twitch#pagination'
+  get 'bing/news.json', to: 'bing#news'
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

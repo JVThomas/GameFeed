@@ -1,7 +1,7 @@
 function TwitchService ($http) {
 
   this.getChannels = function(title){
-    return $http.get('http://localhost:3000/game/channels.json', 
+    return $http.get('http://localhost:3000/twitch/channels.json', 
       {params:
         {title: title}
       }
@@ -9,7 +9,7 @@ function TwitchService ($http) {
   }
 
   this.channelPagination = function(link){
-    return $http.get('http://localhost:3000/game/page.json',
+    return $http.get('http://localhost:3000/twitch/page.json',
       {params: {link:link} }
     );
   }
