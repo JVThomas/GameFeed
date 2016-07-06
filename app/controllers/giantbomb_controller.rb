@@ -1,13 +1,18 @@
 class GiantbombController < ApplicationController
+  before_action :set_gb_service
   def games
-    giantbomb = GiantbombService.new
     @results = giantbomb.games(params[:query])
     render json: @results 
   end
 
   def game
-    giantbomb = GiantbombService.new
     @result = giantbomb.game(params[:data])
     render json: @result
+  end
+
+  private
+
+  def set_gb_service
+    giantbomb ||= GiantbombService.new
   end
 end

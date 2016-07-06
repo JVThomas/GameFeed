@@ -1,6 +1,6 @@
 class TwitchController < ApplicationController
 
-  before_action :set_service
+  before_action :set_twitch_service
 
   def channels
     @result = @twitch_service.channels(params[:title])
@@ -14,7 +14,7 @@ class TwitchController < ApplicationController
 
   private
 
-  def set_service
+  def set_twitch_service
     @twitch_service ||= TwitchService.new
   end
   
