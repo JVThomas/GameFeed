@@ -7,6 +7,7 @@ function newsDirective(){
     controllerAs: 'newsCtrl',
     templateUrl: 'game/directives/news.html',
     controller: function(){
+      debugger;
     }
   }
 }

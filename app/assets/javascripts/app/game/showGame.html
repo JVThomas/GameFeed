@@ -1,8 +1,6 @@
 <div class = "gameDeck valign-wrapper">
   <img src = "{{showGame.game.icon}}">
   <h2 ng-bind = "showGame.game.name" class = "center-align gameTitle">Game</h2>
-  <!-- need to list develoeprs, release date, and platforms as well-->
-  <!-- have to incorportate twitch streams somehow, maybe add them and switch between game deatails and channel listings/ embed video-->
 </div><br>
 <div class = "viewComponentPanels row">
   <div class = "col s12">
@@ -13,17 +11,12 @@
     </ul>
   </div>
 </div>
-<div class = "gameDescription" ng-bind-html = "showGame.game.description" ng-if = "showGame.activePanel === 1"></div>
-<div class = "gameChannels" ng-if = "showGame.activePanel === 2">
-  <a ng-click = "showGame.channelPagination(showGame.prevLink)" ng-show = "showGame.prevLink !== undefined">Prev</a>
-  <a ng-click = "showGame.channelPagination(showGame.nextLink)" ng-show = "showGame.nextLink !== undefined">Next</a>
-  <div ng-show = "showGame.streams.length === 0"><h4>No results found</h4></div>
-  <ul ng-show = "showGame.streams.length > 0" >
-    <li ng-repeat = "stream in showGame.streams" stream-directive = "stream"></li>
-  </ul>
-</div>
-<div class = "gameNews" ng-if = "showGame.activePanel === 3">
-  <ul class="collection">
-    <li ng-repeat = "headline in showGame.news" news-directive = "headline" class = "collection-item"></li>
-  </ul>
-</div>
+
+<div class = "gameDescription" ng-bind-html = "showGame.game.description" ng-show = "showGame.activePanel === 1"></div>
+
+<!-- stream channels directive -->
+<div stream-list-directive = 'showGame.game.name' class = "gameChannels" ng-if = "showGame.activePanel === 2"></div>
+
+<!-- news listing directive -->
+<div news-list-directive = "showGame.game.name" class = "gameNews" ng-if = "showGame.activePanel === 3"></div>
+ 

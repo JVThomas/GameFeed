@@ -1,0 +1,6 @@
+<a ng-click = "streamListCtrl.channelPagination(streamListCtrl.prevLink)" ng-show = "streamListCtrl.prevLink !== undefined">Prev</a>
+<a ng-click = "streamListCtrl.channelPagination(streamListCtrl.nextLink)" ng-show = "streamListCtrl.nextLink !== undefined">Next</a>
+<div ng-show = "streamListCtrl.streams.length === 0"><h4>No results found</h4></div>
+<ul ng-show = "streamListCtrl.streams.length > 0" >
+	<li ng-repeat = "stream in streamListCtrl.streams" stream-directive = "stream"></li>
+</ul>
