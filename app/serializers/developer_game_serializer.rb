@@ -1,3 +1,3 @@
 class DeveloperGameSerializer < ActiveModel::Serializer
-  attributes :id, :name, :year
+  attributes :id, :title, :year
 end

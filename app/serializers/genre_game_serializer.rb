@@ -1,3 +1,3 @@
 class GenreGameSerializer < ActiveModel::Serializer
-  attributes :id, :name, :year, :developer
+  attributes :id, :title, :year, :developer
 end
