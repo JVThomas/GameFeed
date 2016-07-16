@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'twitch/channels.json', to: 'twitch#channels'
   get 'twitch/page.json', to: 'twitch#pagination'
   get 'bing/news.json', to: 'bing#news'
+  get 'games/user_games', to: 'games#user_games'
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -5,4 +5,9 @@ class GamesController < ApplicationController
 		render json :@user_feed
 	end
 
+	def user_games
+		@games = current_user.games
+		render json :@games
+	end
+
 end
