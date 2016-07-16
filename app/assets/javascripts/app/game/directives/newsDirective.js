@@ -7,7 +7,7 @@ function newsDirective(){
     controllerAs: 'newsCtrl',
     templateUrl: 'game/directives/news.html',
     controller: function(){
-      debugger;
+      this.headline.Date = Date(this.headline.Date);
     }
   }
 }
