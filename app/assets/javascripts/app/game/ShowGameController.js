@@ -1,6 +1,5 @@
-function ShowGameController ($stateParams, GiantbombService, BingService, GamesService){
+function ShowGameController ($stateParams, GiantbombService, BingService, GamesService, GameFactory){
   var ctrl = this;
-  ctrl.gameID = undefined;
   ctrl.userGame;
 
   ctrl.setGame = function (){
@@ -15,33 +14,44 @@ function ShowGameController ($stateParams, GiantbombService, BingService, GamesS
   }
 
   ctrl.setFollowStatus = function(){
-    ctrl.followedBool = false;
-    ctrl.userGames = GamesService.getUserGames();
-    for (i = 0 ; i < ctrl.userGames.length - 1; i++){
-      if(ctrl.userGames[i].giantbomb_id === $stateParams.linkID){
-        ctrl.gameID = ctrl.userGames.id;
-        ctrl.followedBool = true;
-        break;
+    GamesService.findUserGame($stateParams.linkID).then(function(resp){
+      if(resp.data.length === 0){
+        ctrl.followStatus = "FOLLOW";
+        ctrl.userGame = new GameFactory();
       }
-    }
+      else{
+        ctrl.followStatus = "UNFOLLOW";
+        ctrl.userGame = GameFactory.get({id: $stateParams.linkID});
+      }
+    });
   }
 
-//note -> need to finish follow Game function, need to see if factory works, need to see if follow status works
-  ctrl.followGame = function(){
-    ctrl.followedBool = !ctrl.followedBool;
-    if(ctrl.gameID !== undefined){
-      userGame = new GameFactory();
-    }
-    else{
-      userGame = GameFactory.get({id: ctrl.gameID});
-    }
+    //old code, need to determine if I really need this
+    //service method is still good to retreive data, just don't need the functionality right now
+    //ctrl.userGames = GamesService.getUserGames();
+    //for (i = 0 ; i < ctrl.userGames.length - 1; i++){
+    //  if(ctrl.userGames[i].giantbomb_id === $stateParams.linkID){
+    //    ctrl.gameID = ctrl.userGames.id;
+    //    ctrl.followedBool = true;
+    //    break;
+    //  }
+    //}
 
-  }
+// old code, need to re-evaluate
+//  ctrl.followGame = function(){
+//    ctrl.followedBool = !ctrl.followedBool;
+//    if(ctrl.gameID !== undefined){
+//      userGame = new GameFactory();
+//    }
+//    else{
+//      userGame = GameFactory.get({id: ctrl.gameID});
+//    }
+//  }
   
   ctrl.setGame();
 }
 
-ShowGameController.$inject = ['$stateParams', 'GiantbombService', 'BingService', 'GamesService'];
+ShowGameController.$inject = ['$stateParams', 'GiantbombService', 'BingService', 'GamesService', 'GameFactory'];
 
 angular
   .module('app')

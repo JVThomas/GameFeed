@@ -33,7 +33,7 @@
 	font-size: 2.3em;
 }
 
-.gameDescription h1, h2, h3, h4, h5, h6{
+.gameDescription h1, .gameDescription h2, .gameDescription h3, .gameDescription h4, .gameDescription h5, .gameDescription h6{
 	clear: both;
 	text-transform: uppercase;
 	font-weight: bold;

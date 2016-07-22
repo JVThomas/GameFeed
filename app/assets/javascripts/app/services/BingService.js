@@ -9,6 +9,8 @@ function BingService($http){
   }
 }
 
+BingService.$inject = ['$http'];
+
 angular
   .module('app')
   .service('BingService', BingService)

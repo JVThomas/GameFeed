@@ -15,6 +15,8 @@ function TwitchService ($http) {
   }
 }
 
+TwitchService.$inject = ['$http'];
+
 angular
   .module('app')
   .service('TwitchService', TwitchService);

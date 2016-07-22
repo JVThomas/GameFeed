@@ -17,6 +17,8 @@ function GiantbombService ($http){
   }
 }
 
+GiantbombService.$inject = ['$http'];
+
 angular
   .module('app')
   .service('GiantbombService', GiantbombService);

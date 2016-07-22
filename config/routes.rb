@@ -7,11 +7,12 @@ Rails.application.routes.draw do
   resources :developers, only: [:create, :index, :show]
   resources :platforms, only: [:create, :index, :show]
   get 'giantbomb/games/search', to: 'giantbomb#games'
-  get 'giantbomb/game/search.json', to: 'giantbomb#game'
-  get 'twitch/channels.json', to: 'twitch#channels'
-  get 'twitch/page.json', to: 'twitch#pagination'
+  get 'giantbomb/game/search', to: 'giantbomb#game'
+  get 'twitch/channels', to: 'twitch#channels'
+  get 'twitch/page', to: 'twitch#pagination'
   get 'bing/news.json', to: 'bing#news'
-  get 'games/user_games', to: 'games#user_games'
+  get 'games/search/user_games', to: 'games#user_games'
+  get 'games/search/find_user_game', to: 'games#find_user_game'
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
