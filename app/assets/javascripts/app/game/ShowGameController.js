@@ -13,6 +13,7 @@ function ShowGameController ($stateParams, GiantbombService, BingService, GamesS
     });
   }
 
+  //need to set up factory function to set up follow, unfollow status
   ctrl.setFollowStatus = function(){
     GamesService.findUserGame($stateParams.linkID).then(function(resp){
       if(resp.data.length === 0){
@@ -36,18 +37,6 @@ function ShowGameController ($stateParams, GiantbombService, BingService, GamesS
     //    break;
     //  }
     //}
-
-// old code, need to re-evaluate
-//  ctrl.followGame = function(){
-//    ctrl.followedBool = !ctrl.followedBool;
-//    if(ctrl.gameID !== undefined){
-//      userGame = new GameFactory();
-//    }
-//    else{
-//      userGame = GameFactory.get({id: ctrl.gameID});
-//    }
-//  }
-  
   ctrl.setGame();
 }
 
