@@ -23,11 +23,6 @@ class GamesController < ApplicationController
 	def update
 	end
 
-	def find_user_game
-		@user_game = UserGame.where(user_id: current_user.id, giantbomb_id: params[:giantbomb_id])
-		render json: @user_game
-	end
-
 	private
 
 	def set_game
