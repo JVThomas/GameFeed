@@ -1,4 +1,4 @@
-function ShowGameController ($stateParams, GiantbombService, BingService, GamesService, GameFactory){
+function ShowGameController ($stateParams, GiantbombService, BingService, UserGameFactory, GameFactory,Auth){
   var ctrl = this;
   ctrl.userGame;
 
@@ -15,8 +15,9 @@ function ShowGameController ($stateParams, GiantbombService, BingService, GamesS
 
   //need to set up factory function to set up follow, unfollow status
   ctrl.setFollowStatus = function(){
-    GamesService.findUserGame($stateParams.linkID).then(function(resp){
-      if(resp.data.length === 0){
+    Auth.currentUser().then(function(resp){
+      ctrl.userGames = UserGameFactory.query({user_id: resp.id});
+      if(ctrl.userGames.length === 0){
         ctrl.followStatus = false;
         //ctrl.userGame = new GameFactory();
         //send game information to backend and check for game existence there? Either way, association has to be created
@@ -34,7 +35,7 @@ function ShowGameController ($stateParams, GiantbombService, BingService, GamesS
   ctrl.setGame();
 }
 
-ShowGameController.$inject = ['$stateParams', 'GiantbombService', 'BingService', 'GamesService', 'GameFactory'];
+ShowGameController.$inject = ['$stateParams', 'GiantbombService', 'BingService', 'UserGameFactory', 'GameFactory','Auth'];
 
 angular
   .module('app')

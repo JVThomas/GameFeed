@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+	before_action :set_game, only: [:show, :update]
 
 	def index
 		@user_feed = current_user.feed
@@ -11,7 +12,6 @@ class GamesController < ApplicationController
 	end
 
 	def show
-		@game = Game.where(giantbomb_id: params[:giantbomb_id])
 		render json: @game
 	end
 
@@ -20,9 +20,18 @@ class GamesController < ApplicationController
 		render json: @games
 	end
 
+	def update
+	end
+
 	def find_user_game
 		@user_game = UserGame.where(user_id: current_user.id, giantbomb_id: params[:giantbomb_id])
 		render json: @user_game
+	end
+
+	private
+
+	def set_game
+		@game = Game.where(giantbomb_id: params[:giantbomb_id])
 	end
 
 end
