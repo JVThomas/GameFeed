@@ -3,7 +3,7 @@ function ShowGameController ($stateParams, GiantbombService, BingService, GamesS
   ctrl.userGame;
 
   ctrl.setGame = function (){
-    ctrl.activePanel = 1;  
+    ctrl.activePanel = 'description';
     GiantbombService.getGame($stateParams.linkID).then(function(resp){
       ctrl.game = resp.data.results;
       ctrl.game.image !== null ? ctrl.game.icon = ctrl.game["image"]["thumb_url"] : ctrl.game.icon = "";
@@ -30,7 +30,7 @@ function ShowGameController ($stateParams, GiantbombService, BingService, GamesS
       }
     });
   }
-  
+
   ctrl.setGame();
 }
 
