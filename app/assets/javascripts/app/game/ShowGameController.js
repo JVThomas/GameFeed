@@ -17,26 +17,20 @@ function ShowGameController ($stateParams, GiantbombService, BingService, GamesS
   ctrl.setFollowStatus = function(){
     GamesService.findUserGame($stateParams.linkID).then(function(resp){
       if(resp.data.length === 0){
-        ctrl.followStatus = "FOLLOW";
-        ctrl.userGame = new GameFactory();
+        ctrl.followStatus = false;
+        //ctrl.userGame = new GameFactory();
+        //send game information to backend and check for game existence there? Either way, association has to be created
+        //should there be a seperate follow route? Or should I implement via traditional REST?
       }
       else{
-        ctrl.followStatus = "UNFOLLOW";
-        ctrl.userGame = GameFactory.get({id: $stateParams.linkID});
+        ctrl.followStatus = true;
+        //ctrl.userGame = GameFactory.get(resp.data.game_id);
+        //when unfollowing, need to delete association from backend
+        //should I make a seperate unfollow route? or should I find a way to implement with traditional REST?
       }
     });
   }
-
-    //old code, need to determine if I really need this
-    //service method is still good to retreive data, just don't need the functionality right now
-    //ctrl.userGames = GamesService.getUserGames();
-    //for (i = 0 ; i < ctrl.userGames.length - 1; i++){
-    //  if(ctrl.userGames[i].giantbomb_id === $stateParams.linkID){
-    //    ctrl.gameID = ctrl.userGames.id;
-    //    ctrl.followedBool = true;
-    //    break;
-    //  }
-    //}
+  
   ctrl.setGame();
 }
 

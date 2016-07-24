@@ -18,15 +18,15 @@
 /*/////////////STYLING//////////////////////*/
 
 .streamContainer{
-  margin: 2em auto;
+	margin: 2em auto;
 }
 
 .streamDetails{
-  margin-left: 2em;
+	margin-left: 2em;
 }
 
 .gameDescription h2{
-	text-align: center;	
+	text-align: center; 
 }
 
 .gameDescription h3{
