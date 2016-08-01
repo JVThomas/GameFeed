@@ -7,7 +7,9 @@ class GamesController < ApplicationController
 	end
 
 	def create
-		@game = Game.new(game_params)
+		binding.pry
+		@game = Game.new()
+		@game.set_data(params[:data])
 		render json: @game
 	end
 
@@ -26,7 +28,14 @@ class GamesController < ApplicationController
 	private
 
 	def set_game
-		@game = Game.where(giantbomb_id: params[:giantbomb_id])
+		@game = Game.find_by(giantbomb_id: params[:id])
+	end
+
+	def game_params
+		params.require(:game).permit(:name, :description, :giantbomb_id, :expected_release_year, :original_release_date, 
+									:platforms_attributes[:name], :developers_attributes[:name], :image_attributes[:icon_url], 
+									:genres_attributes[:name]
+		)
 	end
 
 end

@@ -1,7 +1,9 @@
 function UserGameFactory($resource){
-	var userGame = $resource('http://localhost:3000/user_games');
-	return userGame;
+	var UserGame = $resource('http://localhost:3000/user_games/:id',{id:'@id'});
+	return UserGame;
 }
+
+UserGameFactory.$inject = ['$resource'];
 
 angular
 	.module('app')
