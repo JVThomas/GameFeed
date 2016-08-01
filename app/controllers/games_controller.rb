@@ -8,8 +8,8 @@ class GamesController < ApplicationController
 
 	def create
 		binding.pry
-		@game = Game.new()
-		@game.set_data(params[:data])
+		@game = Game.new(game_params)
+		@game.save
 		render json: @game
 	end
 
@@ -33,8 +33,8 @@ class GamesController < ApplicationController
 
 	def game_params
 		params.require(:game).permit(:name, :description, :giantbomb_id, :expected_release_year, :original_release_date, 
-									:platforms_attributes[:name], :developers_attributes[:name], :image_attributes[:icon_url], 
-									:genres_attributes[:name]
+									:platforms_attributes => [:name], :developers_attributes => [:name], :images_attributes => [:icon_url], 
+									:genres_attributes => [:name]
 		)
 	end
 
