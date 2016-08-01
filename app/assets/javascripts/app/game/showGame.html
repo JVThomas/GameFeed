@@ -1,6 +1,6 @@
 <div class = "gameDeck valign-wrapper">
-  <img src = "{{showGame.game.data.image.thumb_url}}">
-  <h2 ng-bind = "showGame.game.data.name" class = "center-align gameTitle">Game</h2>
+  <img src = "{{showGame.game.game.image.thumb_url}}">
+  <h2 ng-bind = "showGame.game.game.name" class = "center-align gameTitle">Game</h2>
   <button class="waves-effect waves-light btn" type = "submit">{{showGame.followStatus === false ? "FOLLOW" : "UNFOLLOW"}}</button>
 </div><br>
 <div class = "viewComponentPanels row">
@@ -13,12 +13,12 @@
   </div>
 </div>
 
-<div class = "gameDescription" ng-bind-html = "showGame.game.data.description" ng-show = "showGame.activePanel === 'description'"></div>
+<div class = "gameDescription" ng-bind-html = "showGame.game.game.description" ng-show = "showGame.activePanel === 'description'"></div>
 
 <!-- stream channels directive -->
-<div stream-list-directive = 'showGame.game.name' class = "gameChannels" ng-if = "showGame.activePanel === 'twitch'"></div>
+<div stream-list-directive = 'showGame.game.game.name' class = "gameChannels" ng-if = "showGame.activePanel === 'twitch'"></div>
 
 <!-- news listing directive -->
-<div news-list-directive = "showGame.game.name" class = "gameNews" ng-if = "showGame.activePanel === 'bing'"></div>
+<div news-list-directive = "showGame.game.game.name" class = "gameNews" ng-if = "showGame.activePanel === 'bing'"></div>
 
  
