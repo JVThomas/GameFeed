@@ -4,19 +4,20 @@ class Game < ActiveRecord::Base
   has_many :game_platforms
   has_many :platforms, through: :game_platforms
   has_many :developers
-  validates :title, presence: true
+  validates :name, presence: true
   validates :giantbomb_id, presence: true
 
   def platforms_attributes=(platform_attributes)
   	#write up platforms_attrs, need to make join models as well
   end
 
-  def developers_attributes(developers_attributes)
+  def developers_attributes=(developers_attributes)
   	# write up developers_attrs, need to make join models as well
   end
 
   def genres_attributes=(genres_attributes)
   	# attrs and join models made here
+  	# need to make genres_model and joins 
   end
 
   def images_attributes=(image_attributes)

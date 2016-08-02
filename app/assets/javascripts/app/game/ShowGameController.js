@@ -30,7 +30,7 @@ function ShowGameController ($stateParams, GiantbombService, BingService, UserGa
       alert(error.statusText);
     });
   }
-  //might make the follow button its own directive, that way I could make a user index for followed games
+  //might make the follow button its own directive, that way I could make a game index for followed games
   ctrl.setFollowStatus = function(){
     ctrl.userGame = UserGameFactory.get({id: ctrl.giantbomb_id}, function(userGame){
       

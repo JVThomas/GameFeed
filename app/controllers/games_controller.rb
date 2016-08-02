@@ -7,8 +7,7 @@ class GamesController < ApplicationController
 	end
 
 	def create
-		binding.pry
-		@game = Game.new(game_params)
+		@game = current_user.games.build(game_params)
 		@game.save
 		render json: @game
 	end
