@@ -9,15 +9,14 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   def feed
-  	@user_games = self.games
-  	@user_feed = {}
+  	user_feed = {}
   	set_services
 
-  	@user_games.each do |game|
-  		@title = game.title
-  		@user_feed["#{@title}"] = {streams: @twitch_serivce.channels(@title), news: @bing_service.get_news(@title)}
+  	self.games.each do |game|
+  		name = game.name
+  		user_feed["#{name}"] = {streams: @twitch_serivce.channels(name), news: @bing_service.get_news(name)}
   	end
-  	@user_feed
+  	user_feed
   end
 
   private

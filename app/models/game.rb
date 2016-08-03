@@ -23,5 +23,5 @@ class Game < ActiveRecord::Base
   def images_attributes=(image_attributes)
   	#no join models needed, just make sure correct image link is saved
   end
-
+  
 end

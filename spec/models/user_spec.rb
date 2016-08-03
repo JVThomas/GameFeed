@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'User model' do
   	it 'can generate a feed based on saved games' do
-  		@game = FactoryGirl.create(:game, title: "Street Fighter V")
+  		@game = FactoryGirl.create(:game, name: "Street Fighter V")
   		@user = FactoryGirl.create(:user)
   		@game_user = UserGame.create(user_id: @user.id, game_id: @game.id)
   		@feed = @user.feed

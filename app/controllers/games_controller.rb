@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-	before_action :set_game, only: [:show, :update]
+	before_action :set_game, only: [:show, :create, :update]
 
 	def index
 		@user_feed = current_user.feed
@@ -7,7 +7,8 @@ class GamesController < ApplicationController
 	end
 
 	def create
-		@game = current_user.games.build(game_params)
+		binding.pry
+		@game = Game.build(game_params) if !@game
 		@game.save
 		render json: @game
 	end

@@ -6,7 +6,7 @@ RSpec.describe Game, type: :model do
   end
 
   it 'is invalid without a title' do
-    expect(FactoryGirl.build(:game, title:"")).to be_invalid
+    expect(FactoryGirl.build(:game, name:"")).to be_invalid
   end
 
   it 'is invalid without a giantbomb id' do
