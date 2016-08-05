@@ -15,10 +15,10 @@
 
 <div class = "gameDescription" ng-bind-html = "showGame.game.game.description" ng-show = "showGame.activePanel === 'description'"></div>
 
-<!-- stream channels directive -->
-<div stream-list-directive = 'showGame.game.game.name' class = "gameChannels" ng-if = "showGame.activePanel === 'twitch'"></div>
+<!-- stream channels component -->
+<stream-list-component name = "showGame.game.game.name" class = "gameChannels" ng-if = "showGame.activePanel === 'twitch'"></stream-list-component>
 
-<!-- news listing directive -->
-<div news-list-directive = "showGame.game.game.name" class = "gameNews" ng-if = "showGame.activePanel === 'bing'"></div>
+<!-- news listing component -->
+<news-list-component name = "showGame.game.game.name" class = "gameNews" ng-if = "showGame.activePanel === 'bing'"></news-list-component>
 
  

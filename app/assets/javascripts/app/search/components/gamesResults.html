@@ -1,6 +1,8 @@
 <div class = "row gameResults" ng-show = "gamesResults.resultsFoundBool">
     <ul class = "collection">
-      <li ng-repeat = "game in gamesResults.resultList" games-item = "game" class = "collection-item avatar"></li>
+      <li ng-repeat = "result in gamesResults.resultList" class = "collection-item avatar">
+      	<game-component result = "result"></game-component>
+      </li>
     </ul>
 </div>
 

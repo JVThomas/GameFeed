@@ -1,0 +1,8 @@
+<img src= '{{gameCtrl.game.icon}}' alt="" class="circle">
+<span class="title">{{gameCtrl.game.title}}</span><br>
+<p>{{gameCtrl.game.deck}}<br/>
+   <b>Platforms:</b> {{gameCtrl.game.platforms.join(", ")}}<br/>
+   <b>Release Date</b>: {{gameCtrl.game.release_date}}<br/>
+   <a href = "" ui-sref = "home.showGame({linkID: gameCtrl.game.detailID})" class="waves-effect waves-light btn" >View Game</a> 
+</p>
+
