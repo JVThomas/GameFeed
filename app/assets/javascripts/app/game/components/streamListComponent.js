@@ -23,14 +23,14 @@ var streamListComponent = {
 			});  
 			}
 
-			ctrl.setLinks = function(links){
-		    ctrl.nextLink = links.next;
+		ctrl.setLinks = function(links,flag){
+			flag ? ctrl.nextLink = links.next : ctrl.nextLink = undefined;
 		    ctrl.prevLink = links.prev;
 		}
 
 		ctrl.setChannels = function(resp){
-			ctrl.setLinks(resp.data._links);
-  			ctrl.streams = resp.data.streams
+			resp.data.streams.length === 0 ? ctrl.setLinks(resp.data._links, false) : ctrl.setLinks(resp.data._links, true);
+  			ctrl.streams = resp.data.streams;
 		}
 
 		ctrl.findChannels(ctrl.name);

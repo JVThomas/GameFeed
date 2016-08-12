@@ -17,6 +17,14 @@
 
 /*/////////////STYLING//////////////////////*/
 
+.gameDeck{
+	padding-top: 2em;
+}
+
+.gameDeck h2{
+	padding-right: 0.5em;
+}
+
 .streamContainer{
 	margin: 2em auto;
 }
@@ -25,6 +33,9 @@
 	margin-left: 2em;
 }
 
+.gameDescription h2, .gameDescription h3{
+	padding: 0.7em 0 0.2em;
+}
 .gameDescription h2{
 	text-align: center; 
 }
@@ -43,6 +54,11 @@
 	pointer-events: none;
 	cursor: default;
 	color: black;
+}
+
+.gameDescription figure{
+	max-width: 400px;
+	max-height: 400px;
 }
 
 .gameDescription figure:nth-child(odd){
