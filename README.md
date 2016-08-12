@@ -1,28 +1,5 @@
 ## README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A side project of mine, I came up with this idea because I wanted to play with API's that I thought were closely related to each other. Also, this project is pretty good as a stress reliever. The idea is to bring news, streams, and game details to a single portal using the Giantbomb, Bing, and Twitch API.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+As of now the app is built with Rails and AngularJS (1.5). You can fork it if you wish, but you'll have to sign up for your own personal API keys and save it in a .env file.
