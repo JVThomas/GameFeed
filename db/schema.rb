@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801153329) do
+ActiveRecord::Schema.define(version: 20160815202202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20160801153329) do
     t.integer "developer_id"
   end
 
+  create_table "game_genres", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "game_platforms", force: :cascade do |t|
     t.integer  "game_id"
     t.integer  "platform_id"
@@ -38,10 +45,11 @@ ActiveRecord::Schema.define(version: 20160801153329) do
     t.string   "name"
     t.string   "giantbomb_id"
     t.string   "original_release_date", default: ""
-    t.string   "expected_release_date", default: ""
-    t.string   "image_link",            default: ""
+    t.string   "expected_release_year", default: ""
+    t.string   "image",                 default: ""
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.string   "description"
   end
 
   create_table "platforms", force: :cascade do |t|

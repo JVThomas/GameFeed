@@ -7,21 +7,56 @@ class Game < ActiveRecord::Base
   validates :name, presence: true
   validates :giantbomb_id, presence: true
 
-  def platforms_attributes=(platform_attributes)
-  	#write up platforms_attrs, need to make join models as well
+  #need to test each setter overwrite
+  def platforms=(platform_attributes)
+  	platform_attributes.each do |plat_attr|
+      platform_name = plat_attr["name"]
+      if valid_attribute(platform_name)
+        platform = Platform.find_or_create_by(name: platform_name)
+        game_platform = self.game_platforms.where(id: platform.id).first
+        if !game_platform
+          game_platform = self.game_platforms.build(platform_id: platform.id)
+        end
+      end
+    end
   end
 
-  def developers_attributes=(developers_attributes)
-  	# write up developers_attrs, need to make join models as well
+  def developers=(developer_attributes)
+  	developer_attributes.each do |dev_attr|
+      dev_name = dev_attr["name"]
+      if valid_attribute(dev_name)
+        developer = Developer.find_or_create_by(name: dev_name)
+        game_developer = self.game_developers.where(id: developer.id).first
+        if !game_developer
+          game_developer = self.game_developers.build(developer_id: developer.id)
+        end
+      end
+    end
   end
 
-  def genres_attributes=(genres_attributes)
-  	# attrs and join models made here
-  	# need to make genres_model and joins 
+  def genre=(genre_attributes)
+    genres_attributes.each do |genre_attr|
+      genre_name = genre_attr["name"]
+      if valid_attribute(genre_name)
+        genre = Genre.find_or_create_by(name: genre_name)
+        game_genre = self.game_genres.where(genre_id: genre.id).first
+        if !game_genre
+          game_genre = self.game_genres.build(genre_id: genre.id)
+        end
+      end
+    end
   end
 
-  def images_attributes=(image_attributes)
-  	#no join models needed, just make sure correct image link is saved
+  def image=(image_link)
+    if valid_attribute(image_link)
+  	 self.image = image_link
+    end
+  end
+
+  private
+
+  def valid_attribute(string)
+    return string != nil
   end
   
 end
