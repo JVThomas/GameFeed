@@ -1,3 +1,3 @@
 class SimpleGameSerializer < ActiveModel:Serializer
-	attributes :id, :title, :giantbomb_id
+	attributes :id, :name, :giantbomb_id, :original_release_date, :expected_release_year, :image
 end

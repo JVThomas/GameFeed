@@ -1,6 +1,6 @@
 class GameSerializer < ActiveModel::Serializer
-  attributes :id, :title, :release_year, :description, :giantbomb_id
-  has_many :platforms
-  has_many :developers
-  has_many :genres
+  attributes :id, :name, :original_release_year, :expected_release_year, :description, :giantbomb_id, :image
+  has_many :platforms, serializer: SimplePlatformSerializer
+  has_many :developers, serializer: SimpleDeveloperSerializer
+  has_many :genres, serializer: SimpleGenreSerializer
 end
