@@ -13,61 +13,48 @@
  *= require_tree .
  *= require_self
  *= require materialize
+ *= require show_game
  */
 
-/*/////////////STYLING//////////////////////*/
-
-.gameDeck{
-	padding-top: 2em;
+/************************CSS LOADER********************************************/
+.loader {
+  margin: 60px auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(143,52,171, 0.2);
+  border-right: 1.1em solid rgba(143,52,171, 0.2);
+  border-bottom: 1.1em solid rgba(143,52,171, 0.2);
+  border-left: 1.1em solid #8f34ab;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
 }
-
-.gameDeck h2{
-	padding-right: 0.5em;
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
 }
-
-.streamContainer{
-	margin: 2em auto;
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
-
-.streamDetails{
-	margin-left: 2em;
-}
-
-.gameDescription h2, .gameDescription h3{
-	padding: 0.7em 0 0.2em;
-}
-.gameDescription h2{
-	text-align: center; 
-}
-
-.gameDescription h3{
-	font-size: 2.3em;
-}
-
-.gameDescription h1, .gameDescription h2, .gameDescription h3, .gameDescription h4, .gameDescription h5, .gameDescription h6{
-	clear: both;
-	text-transform: uppercase;
-	font-weight: bold;
-}
-
-.gameDescription a{
-	pointer-events: none;
-	cursor: default;
-	color: black;
-}
-
-.gameDescription figure{
-	max-width: 400px;
-	max-height: 400px;
-}
-
-.gameDescription figure:nth-child(odd){
-	float:left;
-}
-.gameDescription figure:nth-child(even){
-	float:right;
-}
-
-.gameDescription figcaption{
-	font-style: italic;
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }

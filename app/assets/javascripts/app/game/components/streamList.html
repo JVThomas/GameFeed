@@ -1,7 +1,8 @@
 <a ng-click = "streamListCtrl.channelPagination(streamListCtrl.prevLink)" ng-show = "streamListCtrl.prevLink !== undefined">Prev</a>
 <a ng-click = "streamListCtrl.channelPagination(streamListCtrl.nextLink)" ng-show = "streamListCtrl.nextLink !== undefined">Next</a>
-<div ng-show = "streamListCtrl.streams.length === 0"><h4>End of List</h4></div>
-<ul ng-show = "streamListCtrl.streams.length > 0" >
+<div class = "loader" ng-if = "streamListCtrl.loading"></div>
+<div ng-show = "streamListCtrl.streams.length === 0 && !streamListCtrl.loading"><h4>End of List</h4></div>
+<ul ng-show = "streamListCtrl.streams.length > 0 && !streamListCtrl.loading" >
 	<li ng-repeat = "stream in streamListCtrl.streams">
 		<stream-component stream = "stream"></stream-component>
 	</li>

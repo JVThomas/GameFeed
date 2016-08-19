@@ -6,9 +6,11 @@ var streamListComponent = {
 	controllerAs: 'streamListCtrl',
 	controller:['TwitchService',function(TwitchService){
 		var ctrl = this;
+		ctrl.loading = true;
 
 		ctrl.findChannels = function(name){
 		    TwitchService.getChannels(name).then(function(resp){
+		    	ctrl.loading = false;
 		    	ctrl.setChannels(resp);
 		    },function(error){
 		    	alert(error.statusText);
@@ -16,7 +18,9 @@ var streamListComponent = {
 		}
 
 		ctrl.channelPagination = function(link){
+			ctrl.loading = true;
 			TwitchService.channelPagination(link).then(function(resp){
+				ctrl.loading = false;
   				ctrl.setChannels(resp);
 			}, function(error){
   				alert(error.statusText);

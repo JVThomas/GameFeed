@@ -1,0 +1,54 @@
+.gameDeck{
+	padding-top: 2em;
+}
+
+.gameDeck h2{
+	padding-right: 0.5em;
+}
+
+.streamContainer{
+	margin: 2em auto;
+}
+
+.streamDetails{
+	margin-left: 2em;
+}
+
+.gameDescription h2, .gameDescription h3{
+	padding: 0.7em 0 0.2em;
+}
+.gameDescription h2{
+	text-align: center; 
+}
+
+.gameDescription h3{
+	font-size: 2.3em;
+}
+
+.gameDescription h1, .gameDescription h2, .gameDescription h3, .gameDescription h4, .gameDescription h5, .gameDescription h6{
+	clear: both;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.gameDescription a{
+	pointer-events: none;
+	cursor: default;
+	color: black;
+}
+
+.gameDescription figure{
+	max-width: 400px;
+	max-height: 400px;
+}
+
+.gameDescription figure:nth-child(odd){
+	float:left;
+}
+.gameDescription figure:nth-child(even){
+	float:right;
+}
+
+.gameDescription figcaption{
+	font-style: italic;
+}

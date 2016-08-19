@@ -11,7 +11,7 @@
     <button class="waves-effect waves-light btn" ng-click = "searchGames.findGame()" ng-disabled = "searchForm.$invalid">Search</button>
   </form>
 </div>
-
+<div class = "loader" ng-if = "searchGames.loading"></div>
 <div class = "row" ng-show = "searchGames.panelToggle">
   <games-results-component></games-results-component>
 </div>

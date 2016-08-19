@@ -14,11 +14,11 @@ function ShowGameController ($stateParams, GiantbombService, BingService, UserGa
           ctrl.game = new GameFactory({game:resp.data.results});
         }
         
-        ctrl.game.$save().then(function(resp){
-          console.log(resp);
-        },function(error){
-          alert(error.statusText());
-        });
+        //ctrl.game.$save().then(function(resp){
+        //  console.log(resp);
+        //},function(error){
+        //  alert(error.statusText());
+        //});
 
       });
       ctrl.setFollowStatus();
