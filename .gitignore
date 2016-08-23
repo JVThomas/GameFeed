@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 .env
+
+#Ignore node_modules
+node_modules

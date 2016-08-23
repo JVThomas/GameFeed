@@ -3,14 +3,17 @@
   "version": "0.0.1",
   "dependencies": {
     "angular": "^1.5.3",
-    "angular-ui-router":"latest",
+    "angular-ui-router": "latest",
     "angular-devise": "latest",
     "angular-resource": "^1.5.3",
     "angular-messages": "^1.5.3",
     "angular-cookies": "^1.5.3",
-    "angular-devise": "latest",
-    "angular-materialize" : "latest",
-    "angular-sanitize" : "1.5.5"
-  },
-  "private": true
+    "angular-materialize": "latest",
+    "angular-sanitize": "1.5.5",
+    "karma-jasmine": "^1.0.2",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma": "^0.4.6",
+    "jasmine-core": "jasmine#^2.4.1",
+    "angular-mocks": "^1.5.8"
+  }
 }
