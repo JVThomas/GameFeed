@@ -27,7 +27,7 @@ module.exports = function(config) {
         'app/assets/javascripts/app/app.js',
         'app/assets/javascripts/app/services/*.js',
         'app/assets/javascripts/app/search/SearchGamesController.js',
-        'spec/features/*.test.js'
+        'spec/front-end/*.test.js'
     ],
 
 
