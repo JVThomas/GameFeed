@@ -15,7 +15,7 @@ describe('SearchGamesController', function(){
 		//needed for manual resolution of promise
 		$q = $injector.get('$q');
 
-		//mock gbService
+		//mock GiantbombService for injection
 		gbService = {
 						getGames: function(query){
 							//block of code manually sets resolve data before returning promise
