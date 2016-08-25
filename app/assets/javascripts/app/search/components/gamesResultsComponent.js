@@ -1,7 +1,7 @@
 var gamesResultsComponent = {
   controllerAs: 'gamesResults',
   templateUrl: 'search/components/gamesResults.html',
-  controller: ['$rootScope', '$filter', function($rootScope, $filter){
+  controller: ['$rootScope', '$filter', function($rootScope){
     var ctrl = this;
     
     $rootScope.$on('results', function(eventName, results){
