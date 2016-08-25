@@ -2,7 +2,7 @@ var streamListComponent = {
 	bindings:{
 		name: '='
 	},
-	templateUrl: 'game/components/streamList.html',
+	templateUrl: 'game/streamList.html',
 	controllerAs: 'streamListCtrl',
 	controller:['TwitchService',function(TwitchService){
 		var ctrl = this;

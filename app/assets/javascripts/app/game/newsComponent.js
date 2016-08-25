@@ -2,7 +2,7 @@ var newsComponent = {
   bindings: {
     headline: '='
   },
-  templateUrl: 'game/components/news.html',
+  templateUrl: 'game/news.html',
   controller: function(){
     var ctrl = this;
     ctrl.headline.Date = Date(ctrl.headline.Date);

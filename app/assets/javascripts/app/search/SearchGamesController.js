@@ -7,6 +7,7 @@ function SearchGamesController(GiantbombService, $rootScope){
   ctrl.findGame = function(){
     ctrl.loading = true;
     GiantbombService.getGames(ctrl.query).then(function(results){
+      debugger;
       $rootScope.$broadcast('results', results);
       ctrl.loading = false;
       ctrl.panelToggle = true;

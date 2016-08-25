@@ -20,8 +20,8 @@ describe('SearchGamesController', function(){
 						getGames: function(query){
 							//block of code manually sets resolve data before returning promise
 							var deferred = $q.defer(); //creates a deferred object to be returned
-							deferred.resolve('pong');
-							return deferred.promise
+							deferred.resolve('pong'); //manually assigns data for success
+							return deferred.promise //returns promise
 						},
 						getGame: function(query){}
 					};
@@ -29,6 +29,7 @@ describe('SearchGamesController', function(){
 		//manually inject $rootScope and mock service into new controller instance 
 		createController = function(){
 			return $controller('SearchGamesController', {
+				//inject dependencies into controller
 				'GiantbombService': gbService,
 				'$rootScope': $rootScope
 			});

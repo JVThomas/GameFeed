@@ -3,7 +3,7 @@ var streamComponent = {
     stream: '='
   },
   controllerAs: 'streamCtrl',
-  templateUrl: 'game/components/stream.html',
+  templateUrl: 'game/stream.html',
   controller: function(){
     var ctrl = this;
     ctrl.stream.channel.status = ctrl.stream.channel.status.substr(0,35) + "...";

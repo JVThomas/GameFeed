@@ -25,9 +25,7 @@ module.exports = function(config) {
         'vendor/assets/components/angular-rails-templates-mock/angular-rails-templates.coffee',
         'vendor/assets/components/angular-mocks/angular-mocks.js',
         'app/assets/javascripts/app/app.js',
-        'app/assets/javascripts/app/services/*.js',
-        'app/assets/javascripts/app/search/components/*.js',
-        'app/assets/javascripts/app/search/SearchGamesController.js',
+        'app/assets/javascripts/app/**/*.js',
         'spec/front-end/*.test.js'
     ],
 

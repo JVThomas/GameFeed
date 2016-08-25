@@ -1,6 +1,6 @@
 var gamesResultsComponent = {
   controllerAs: 'gamesResults',
-  templateUrl: 'search/components/gamesResults.html',
+  templateUrl: 'search/gamesResults.html',
   controller: ['$rootScope', '$filter', function($rootScope){
     var ctrl = this;
     
