@@ -1,5 +1,5 @@
 describe('gamesResultsComponent', function(){
-	var $rootScope, $componentController, controller
+	var $rootScope, $componentController, controller;
 	beforeEach(module('app'));
 
 	beforeEach(inject(function($injector){
