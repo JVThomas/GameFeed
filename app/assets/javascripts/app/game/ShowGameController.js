@@ -1,4 +1,4 @@
-function ShowGameController ($stateParams, $scope, GiantbombService, BingService, UserGameFactory, GameFactory,Auth){
+function ShowGameController ($stateParams, GiantbombService, BingService, UserGameFactory, GameFactory,Auth){
   var ctrl = this;
   ctrl.giantbomb_id = $stateParams.linkID;
   ctrl.userGame;
@@ -64,14 +64,10 @@ function ShowGameController ($stateParams, $scope, GiantbombService, BingService
     ctrl.followStatus = !ctrl.followStatus;
   }
 
-  ctrl.setGameAttributes = function(attr){
-
-  }
-
   ctrl.setGame();
 }
 
-ShowGameController.$inject = ['$stateParams', '$scope', 'GiantbombService', 'BingService', 'UserGameFactory', 'GameFactory','Auth'];
+ShowGameController.$inject = ['$stateParams', 'GiantbombService', 'BingService', 'UserGameFactory', 'GameFactory','Auth'];
 
 angular
   .module('app')
