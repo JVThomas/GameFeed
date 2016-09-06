@@ -27,7 +27,7 @@ gem 'devise'
 
 gem 'angular-rails-templates'
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'faraday'
 

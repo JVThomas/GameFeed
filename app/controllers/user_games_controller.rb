@@ -6,6 +6,15 @@ class UserGamesController < ApplicationController
 		render json: @user_games
 	end
 
+	def create
+		!@user_game ? @user_game = UserGame.new(user_id: current_user, game_id: params[:id]) : @user_game
+		if @user_game.save
+			render json: @user_game
+		else
+			render json: @user_game.errors, status: 422
+		end
+	end
+
 	def destroy
 		@user_game.destroy
 		render json: @user_game	

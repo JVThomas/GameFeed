@@ -20,4 +20,26 @@ RSpec.describe Game, type: :model do
   it 'can have an expected release date' do
     expect(FactoryGirl.build(:game).expected_release_date).to eql("test")
   end
+
+  context('Testing overwriting setters') do
+    before(:each) do
+      var game_attributes = { 
+        game: {
+          id:1
+          name: "Test title"
+          giantbomb_id: "3030-48320"
+          original_release_date: "Nov 30th, 2016"
+          expected_release_date: "test"
+          developers:[{name: "Capcom"},{name: "Dimps"}]
+          genres: [{name: "Fighting"}]
+          image: {icon_url: "test link"}
+          platforms: [{name:"PS4"}, {name:"Xbox One"}]
+        }
+      }
+    end
+
+    it('should create a game with validated game_attributes') do
+      
+    end
+  end
 end

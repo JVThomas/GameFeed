@@ -3,11 +3,13 @@ class Game < ActiveRecord::Base
   has_many :users, through: :user_games
   has_many :game_platforms
   has_many :platforms, through: :game_platforms
-  has_many :developers
+  has_many :game_developers
+  has_many :developers, through: :game_developers
+  has_many :game_genres
+  has_many :genres, through: :game_genres
   validates :name, presence: true
   validates :giantbomb_id, presence: true
 
-  #need to test each setter overwrite
   def platforms=(platform_attributes)
   	platform_attributes.each do |plat_attr|
       platform_name = plat_attr["name"]
@@ -34,8 +36,8 @@ class Game < ActiveRecord::Base
     end
   end
 
-  def genre=(genre_attributes)
-    genres_attributes.each do |genre_attr|
+  def genres=(genre_attributes)
+    genre_attributes.each do |genre_attr|
       genre_name = genre_attr["name"]
       if valid_attribute(genre_name)
         genre = Genre.find_or_create_by(name: genre_name)
@@ -47,9 +49,9 @@ class Game < ActiveRecord::Base
     end
   end
 
-  def image=(image_link)
-    if valid_attribute(image_link)
-  	 self.image = image_link
+  def image=(image_attribute)
+    if valid_attribute(image_attribute["icon_url"])
+  	 self.image_link = image_attribute["icon_url"]
     end
   end
 

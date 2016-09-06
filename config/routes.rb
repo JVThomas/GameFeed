@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :games
   devise_for :users
   root 'application#angular'
-  resources :games, only:[:create, :update, :index, :show, :destroy]
+  resources :games, only:[:create, :update, :index, :show]
   resources :genres, only:[:create, :index, :show]
   resources :developers, only: [:create, :index, :show]
   resources :platforms, only: [:create, :index, :show]

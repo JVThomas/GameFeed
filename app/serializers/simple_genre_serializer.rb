@@ -1,3 +1,3 @@
-class SimpleGenreSerializer < ActiveModel::Serialzier
+class SimpleGenreSerializer < ActiveModel::Serializer
 	attributes :id, :name
 end

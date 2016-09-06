@@ -1,3 +1,3 @@
-class SimpleDeveloperSerialzier < ActiveModel::Serializer
+class SimpleDeveloperSerializer < ActiveModel::Serializer
 	attributes :id, :name
 end

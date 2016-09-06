@@ -1,7 +1,7 @@
 <div class = "gameDeck valign-wrapper">
-  <img src = "{{showGame.game.game.image.thumb_url}}">
-  <h2 ng-bind = "showGame.game.game.name" class = "center-align gameTitle">Game</h2>
-  <button class="waves-effect waves-light btn" type = "submit">{{showGame.followStatus === false ? "FOLLOW" : "UNFOLLOW"}}</button>
+  <img src = "{{showGame.data.image.icon_url}}">
+  <h2 ng-bind = "showGame.data.name" class = "center-align gameTitle">Game</h2>
+  <button class="waves-effect waves-light btn" type = "submit" ng-click = "showGame.changeFollowStatus()">{{showGame.followStatus === false ? "FOLLOW" : "UNFOLLOW"}}</button>
 </div><br>
 <div class = "viewComponentPanels row">
   <div class = "col s12">
@@ -13,12 +13,12 @@
   </div>
 </div>
 
-<div class = "gameDescription" ng-bind-html = "showGame.game.game.description" ng-show = "showGame.activePanel === 'description'"></div>
+<div class = "gameDescription" ng-bind-html = "showGame.data.description" ng-show = "showGame.activePanel === 'description'"></div>
 
 <!-- stream channels component -->
-<stream-list-component name = "showGame.game.game.name" class = "gameChannels" ng-if = "showGame.activePanel === 'twitch'"></stream-list-component>
+<stream-list-component name = "showGame.data.name" class = "gameChannels" ng-if = "showGame.activePanel === 'twitch'"></stream-list-component>
 
 <!-- news listing component -->
-<news-list-component name = "showGame.game.game.name" class = "gameNews" ng-if = "showGame.activePanel === 'bing'"></news-list-component>
+<news-list-component name = "showGame.data.name" class = "gameNews" ng-if = "showGame.activePanel === 'bing'"></news-list-component>
 
  
