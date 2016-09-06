@@ -1,3 +1,3 @@
-class SimplePlatformSerializer < ActiveRecord::SimplePlatformSerializer
+class SimplePlatformSerializer < ActiveModel::Serializer
 	attributes :id, :name
 end
