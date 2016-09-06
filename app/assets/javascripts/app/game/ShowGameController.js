@@ -1,4 +1,4 @@
-function ShowGameController ($stateParams, GiantbombService, BingService, UserGameFactory, GameFactory,Auth){
+function ShowGameController ($stateParams, $state, GiantbombService, BingService, UserGameFactory, GameFactory,Auth){
   var ctrl = this;
   ctrl.giantbomb_id = $stateParams.linkID;
   ctrl.userGame;
@@ -8,27 +8,26 @@ function ShowGameController ($stateParams, GiantbombService, BingService, UserGa
 
     GiantbombService.getGame(ctrl.giantbomb_id).then(function(resp){
       ctrl.data = resp.data.results;
-      debugger;
       ctrl.data.giantbomb_id = ctrl.giantbomb_id;
       ctrl.game = GameFactory.get({giantbomb_id: ctrl.giantbomb_id}, function(game){
+        debugger;
         if(game.id === undefined){
-          ctrl.game = new GameFactory({game: ctrl.data});
-          ctrl.game.$save().then(function(resp){
-            console.log(resp);
-          },function(error){
-            alert(error.statusText);
-          });
+          createGameFactory();
         }else{
-          ctrl.game.$update().then(function(resp){
-            console.log(resp);
-          },function(error){
-            alert(error.statusText);
-          });
+          updateGameFactory();
         }
       });
       ctrl.setFollowStatus();
     },function(error){
-      alert(error.statusText);
+      ctrl.game = GameFactory.get({giantbomb_id: ctrl.giantbomb_id}, function(game){
+        if(game.id === undefined){
+          alert("Oops! Something went wrong with the Giantbomb API! Returning to Search page");
+          $state.go('home.searchGames');
+        }else{
+          ctrl.data = game;
+          ctrl.data.image.icon_url = ctrl.data.image;
+        }
+      });
     });
   }
   
@@ -64,10 +63,27 @@ function ShowGameController ($stateParams, GiantbombService, BingService, UserGa
     ctrl.followStatus = !ctrl.followStatus;
   }
 
+  ctrl.createGameFactory = function(){
+    ctrl.game = new GameFactory({game: ctrl.data});
+    ctrl.game.$save().then(function(resp){
+      console.log(resp);
+    },function(error){
+      alert(error.statusText);
+    });
+  }
+
+  ctrl.updateGameFactory = function(){
+    ctrl.game.$update().then(function(resp){
+      console.log(resp);
+    },function(error){
+      alert(error.statusText);
+    });
+  }
+
   ctrl.setGame();
 }
 
-ShowGameController.$inject = ['$stateParams', 'GiantbombService', 'BingService', 'UserGameFactory', 'GameFactory','Auth'];
+ShowGameController.$inject = ['$stateParams', '$state', 'GiantbombService', 'BingService', 'UserGameFactory', 'GameFactory','Auth'];
 
 angular
   .module('app')
