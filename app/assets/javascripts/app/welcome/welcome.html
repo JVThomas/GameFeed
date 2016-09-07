@@ -1,4 +1,35 @@
-<navbar-directive></navbar-directive>
-<div class = "container">
-  <h3>Welcome! <a href = "" ui-sref = 'register'>Register</a> or <a href = "" ui-sref = 'login'>login</a> to continue</h3>
+	<div class = "container welcomeHeader deep-purple-text">
+	<h1>WELCOME TO GAMEFEED</h1>
+	
+	<div class = "welcomeDescription deep-purple white-text row">
+		<div class = "descriptionText textDetails col s6">
+			<h3>Want to learn more about your favorite Read up on game descriptions written by the folks at Giant Bomb, the #1 video game website</h3>	
+		</div>
+		<div class = "gbLogo right col s6">
+			<img src="{{welcomeCtrl.gbLogo}}">
+		</div>
+	</div>
+	
+	<div class = "welcomeStreams row">
+		<div class = "streamsText textDetails right col s6 deep-purple-text">
+			<h3>Search for the latest live streams of the video game of your choice, all thanks to the developers at Twitch</h3>
+		</div>
+		<div class = "twitchLogo left col s6">
+			<img src="{{welcomeCtrl.twitchLogo}}">
+		</div>
+	</div>
+	
+	<div class = "welcomeNews deep-purple white-text row">
+		<div class = "newsText textDetails right col s6">
+			<h3>Check out the latest video game headlines as well, all thanks to the ever usefull Bing News API</h3>
+		</div>
+		<div class = "bingLogo left col s6">
+			<img src="{{welcomeCtrl.bingLogo}}">
+		</div>
+	</div>
+	
+	<div class = "welcomeLogin deep-purple col s12"></div>
+  <div class = "loginText deep-purple white-text col s12">
+		<h3>So what are you waiting for? <a href = "" ui-sref = 'register'>Register</a> or <a href = "" ui-sref = 'login'>login</a> to continue</h3>
+	</div>
 </div>

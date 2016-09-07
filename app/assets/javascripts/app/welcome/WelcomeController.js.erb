@@ -1,0 +1,10 @@
+function WelcomeController($state, $cookies, Auth){
+	var ctrl = this;
+	this.gbLogo = '<%=image_path("gbLogo.png")%>';
+	this.bingLogo = '<%=image_path("binglogo.jpg")%>';
+	this.twitchLogo = '<%=image_path("GlitchIcon_purple.png")%>'
+}
+
+angular
+  .module('app')
+  .controller('WelcomeController', WelcomeController);

@@ -29,6 +29,7 @@ module GameFeed
 
     config.angular_templates.ignore_prefix  = %w(app/)
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+    config.assets.precompile += %w( .svg .eot .woff .ttf .png .jpg .gif)
 
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do

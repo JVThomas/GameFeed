@@ -1,0 +1,53 @@
+.welcomeHeader h1, .loginText{
+	text-align: center;
+	font-weight: bold;
+}
+
+
+.welcomeNews{
+	margin-bottom: 0;
+}
+
+.descriptionText, .streamsText, .newsText{
+	width: 50%;
+	text-align: center;
+}
+
+.welcomeDescription, .welcomeStreams, .welcomeNews, .welcomeLogin{
+	padding: 2em 2em 2em;
+}
+
+.welcomeLogin{
+	background-image: url("jeffFlail.gif");
+	background-repeat:no-repeat;
+	background-size: cover;
+	width: 100%;
+	padding-top: 50%;
+}
+
+.textDetails:nth-child(even){
+	float: right;
+}
+
+.container{
+	width: 100%;
+	margin: 0px;
+}
+
+.loginText{
+	padding: 5% 0%;
+}
+
+.twitchLogo, .bingLogo, .gbLogo{
+	width: 400px;
+	height: 400px;
+}
+
+img{
+	width: 80%;
+	height: 80%;
+}
+
+img:nth-child(even){
+	float:left;
+}

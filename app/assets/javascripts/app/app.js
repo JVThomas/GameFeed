@@ -4,7 +4,7 @@ angular
     $stateProvider
       .state('welcome',{
         url:'/',
-        controller: 'WelcomeController as welcome',
+        controller: 'WelcomeController as welcomeCtrl',
         templateUrl: 'welcome/welcome.html',
         onEnter: ['$state', 'Auth', function($state, Auth) {
           Auth.currentUser().then(
