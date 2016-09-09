@@ -4,5 +4,6 @@ FactoryGirl.define do
     username 'username'
     email 'email@aol.com'
     password 'password12345'
+    password_confirmation 'password12345'
   end
 end

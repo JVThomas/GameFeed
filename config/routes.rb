@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'giantbomb/game/search', to: 'giantbomb#game'
   get 'twitch/channels', to: 'twitch#channels'
   get 'twitch/page', to: 'twitch#pagination'
-  get 'bing/news.json', to: 'bing#news'
+  get 'bing/news', to: 'bing#news'
   get 'welcome', to: 'welcome#user_feed'
  
   # The priority is based upon order of creation: first created -> highest priority.

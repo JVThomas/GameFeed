@@ -31,8 +31,6 @@ gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'faraday'
 
-gem 'twitch', '~> 0.1.2'
-
 gem 'rack-cors', :require => 'rack/cors'
 
 gem 'rails_12factor'
@@ -47,7 +45,6 @@ gem 'rails_12factor'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'rspec-rails'
   gem 'byebug'
   gem 'dotenv-rails'
