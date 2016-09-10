@@ -29,11 +29,6 @@
 	float: right;
 }
 
-.container{
-	width: 100%;
-	margin: 0px;
-}
-
 .loginText{
 	padding: 5% 0%;
 }
@@ -43,11 +38,7 @@
 	height: 400px;
 }
 
-img{
-	width: 80%;
-	height: 80%;
-}
-
-img:nth-child(even){
-	float:left;
+.bingLogo img, .twitchLogo img, .gbLogo img{
+	width: 100%;
+	height: 100%;
 }
