@@ -58,7 +58,7 @@ class Game < ActiveRecord::Base
   private
 
   def valid_attribute(string)
-    return string != nil
+    !string.blank?
   end
   
 end
