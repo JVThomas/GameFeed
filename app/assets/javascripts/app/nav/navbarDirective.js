@@ -20,6 +20,8 @@ function navbarDirective($cookies, Auth, $state) {
   }
 }
 
+navbarDirective.$inject = ['$cookies', 'Auth', '$state']
+
 angular
   .module('app')
   .directive('navbarDirective', navbarDirective);

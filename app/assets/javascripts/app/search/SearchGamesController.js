@@ -17,6 +17,8 @@ function SearchGamesController(GiantbombService, $rootScope){
   }
 }
 
+SearchGamesController.$inject = ['GiantbombService', '$rootScope']
+
 angular
   .module('app')
   .controller('SearchGamesController', SearchGamesController);

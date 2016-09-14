@@ -5,6 +5,8 @@ function WelcomeController($state, $cookies, Auth){
 	this.twitchLogo = '<%=image_path("GlitchIcon_purple.png")%>'
 }
 
+WelcomeController.$inject = ['$state', '$cookies', 'Auth']
+
 angular
   .module('app')
   .controller('WelcomeController', WelcomeController);

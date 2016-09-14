@@ -10,7 +10,6 @@ function ShowGameController ($stateParams, $state, GiantbombService, BingService
       ctrl.data = resp.data.results;
       ctrl.data.giantbomb_id = ctrl.giantbomb_id;
       ctrl.game = GameFactory.get({giantbomb_id: ctrl.giantbomb_id}, function(game){
-        debugger;
         if(game.id === undefined){
           createGameFactory();
         }else{

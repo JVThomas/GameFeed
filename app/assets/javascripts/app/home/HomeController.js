@@ -31,6 +31,8 @@ function HomeController($scope,$state,Auth,$cookies){
   });
 }
 
+HomeController.$inject = ['$scope', '$state', 'Auth', "$cookies"]
+
 angular
   .module('app')
   .controller('HomeController',HomeController);

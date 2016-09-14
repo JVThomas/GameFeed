@@ -30,6 +30,8 @@ function AuthController($state,Auth,$cookies){
   };
 }
 
+AuthController.$inject = ['$state', 'Auth', '$cookies'];
+
 angular
   .module('app')
   .controller("AuthController",AuthController);
