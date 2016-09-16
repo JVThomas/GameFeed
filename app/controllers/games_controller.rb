@@ -23,7 +23,7 @@ class GamesController < ApplicationController
 		if @game.update(game_params)
 			render json: @game 
 		else
-			render json: @games.errors, status: 422
+			render json: @game.errors, status: 422
 		end
 	end
 
