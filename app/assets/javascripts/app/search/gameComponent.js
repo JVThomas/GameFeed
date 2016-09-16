@@ -25,9 +25,8 @@ var gameComponent = {
       }
     }
 
-    //assign deck and descrption
+    //assign deck
     ctrl.game.deck = ctrl.result["deck"];
-    ctrl.game.description = ctrl.result["description"];
     
     //assign release date
     ctrl.result["original_release_date"] !== null ? ctrl.game.release_date = ctrl.result["original_release_date"] : ctrl.game.release_date = "N/A";
