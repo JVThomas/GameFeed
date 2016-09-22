@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :games
   devise_for :users
   root 'application#angular'
   resources :games, only:[:create, :update, :index, :show]

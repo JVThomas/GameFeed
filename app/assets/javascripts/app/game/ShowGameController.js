@@ -1,4 +1,4 @@
-function ShowGameController ($stateParams, $state, GiantbombService, BingService, UserGameFactory, GameFactory,Auth){
+function ShowGameController ($stateParams, $state, GiantbombService, BingService, UserGameFactory, GameFactory){
   var ctrl = this;
   ctrl.giantbomb_id = $stateParams.linkID;
   ctrl.userGame;
@@ -11,12 +11,12 @@ function ShowGameController ($stateParams, $state, GiantbombService, BingService
       ctrl.data.giantbomb_id = ctrl.giantbomb_id;
       ctrl.game = GameFactory.get({giantbomb_id: ctrl.giantbomb_id}, function(game){
         if(game.id === undefined){
-          createGameFactory();
+          ctrl.createGameFactory();
         }else{
-          updateGameFactory();
+          ctrl.updateGameFactory();
         }
+        ctrl.setFollowStatus();
       });
-      ctrl.setFollowStatus();
     },function(error){
       ctrl.game = GameFactory.get({giantbomb_id: ctrl.giantbomb_id}, function(game){
         if(game.id === undefined){
@@ -25,6 +25,7 @@ function ShowGameController ($stateParams, $state, GiantbombService, BingService
         }else{
           ctrl.data = game;
           ctrl.data.image.icon_url = ctrl.data.image;
+          ctrl.setFollowStatus();
         }
       });
     });
@@ -32,10 +33,9 @@ function ShowGameController ($stateParams, $state, GiantbombService, BingService
   
   //might make the follow button its own directive, that way I could make a game index for followed games
   ctrl.setFollowStatus = function(){
-    ctrl.userGame = UserGameFactory.get({giantbomb_id: ctrl.giantbomb_id}, function(userGame){
-      
+    ctrl.userGame = UserGameFactory.get({game_id: ctrl.game.id}, function(userGame){
       if(ctrl.userGame.id === undefined){
-        ctrl.userGame = new UserGameFactory({giantbomb_id: ctrl.giantbomb_id});
+        ctrl.userGame = new UserGameFactory({game_id: ctrl.game.id});
         ctrl.followStatus = false;
       }
       else{
@@ -46,7 +46,7 @@ function ShowGameController ($stateParams, $state, GiantbombService, BingService
 
   ctrl.changeFollowStatus = function(){
     if (ctrl.followStatus === false){
-      ctrl.userGame.$save({game_id: ctrl.game.id}).then(function(resp){
+      ctrl.userGame.$save().then(function(resp){
         console.log(resp);
       },function(error){
         alert(error.statusText);
@@ -58,6 +58,7 @@ function ShowGameController ($stateParams, $state, GiantbombService, BingService
       },function(error){
         alert(error.statusText);
       });
+      ctrl.userGame = new UserGameFactory({game_id: ctrl.game.id});
     }
     ctrl.followStatus = !ctrl.followStatus;
   }
@@ -82,7 +83,7 @@ function ShowGameController ($stateParams, $state, GiantbombService, BingService
   ctrl.setGame();
 }
 
-ShowGameController.$inject = ['$stateParams', '$state', 'GiantbombService', 'BingService', 'UserGameFactory', 'GameFactory','Auth'];
+ShowGameController.$inject = ['$stateParams', '$state', 'GiantbombService', 'BingService', 'UserGameFactory', 'GameFactory'];
 
 angular
   .module('app')
