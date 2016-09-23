@@ -1,4 +1,5 @@
 class UserGamesController < ApplicationController
+	before_action :set_user_game, only: [:create, :show]
 
 	def index
 		@user_games = UserGame.where(user_id: current_user.id)
@@ -6,7 +7,6 @@ class UserGamesController < ApplicationController
 	end
 
 	def create
-		@user_game = UserGame.find_by(user_id: current_user.id, game_id: params[:game_id])
 		!@user_game ? @user_game = UserGame.new(user_id: current_user.id, game_id: params[:game_id]) : @user_game
 		if @user_game.save
 			render json: @user_game
@@ -25,12 +25,15 @@ class UserGamesController < ApplicationController
 	end
 
 	def show
-		@user_game = UserGame.find_by(user_id: current_user.id, game_id: params[:id])
 		if @user_game
 			render json: @user_game
 		else
 			render json: {}
 		end
+	end
+
+	def set_user_game
+		@user_game = UserGame.find_by(user_id: current_user.id, game_id: params[:id])
 	end
 
 end
