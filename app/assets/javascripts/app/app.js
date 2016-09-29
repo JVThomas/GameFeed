@@ -1,6 +1,10 @@
 angular
   .module('app',['ui.router','Devise','ngResource', 'ngCookies', 'ngMessages', 'templates', 'ngSanitize'])
-  .config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider){
+  .config(['$stateProvider', '$urlRouterProvider', '$sceDelegateProvider',function($stateProvider, $urlRouterProvider, $sceDelegateProvider){
+    $sceDelegateProvider.resourceUrlWhitelist([
+        'self',   // trust all resources from the same origin
+        '*://player.twitch.tv/**'   // trust all resources from `www.player.twitch.tv`
+    ]);
     $stateProvider
       .state('welcome',{
         url:'/',

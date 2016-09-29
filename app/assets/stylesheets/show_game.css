@@ -14,6 +14,10 @@
 	margin-left: 2em;
 }
 
+.gameDescription{
+	padding-bottom: 3em;
+}
+
 .gameDescription h2, .gameDescription h3{
 	padding: 0.7em 0 0.2em;
 }
@@ -51,4 +55,8 @@
 
 .gameDescription figcaption{
 	font-style: italic;
+}
+
+.twitchVideo{
+	padding-bottom: 3em;
 }

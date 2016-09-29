@@ -10,5 +10,5 @@ function GameFactory($resource){
 GameFactory.$inject = ['$resource'];
 
 angular
-.module('app')
-.factory('GameFactory', GameFactory);
+	.module('app')
+	.factory('GameFactory', GameFactory);

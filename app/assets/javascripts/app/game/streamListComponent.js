@@ -6,7 +6,9 @@ var streamListComponent = {
 	controllerAs: 'streamListCtrl',
 	controller:['TwitchService',function(TwitchService){
 		var ctrl = this;
+		ctrl.channelName;
 		ctrl.loading = true;
+		ctrl.videoVisible = false;
 
 		ctrl.findChannels = function(name){
 		    TwitchService.getChannels(name).then(function(resp){
@@ -35,6 +37,16 @@ var streamListComponent = {
 		ctrl.setChannels = function(resp){
 			resp.data.streams.length === 0 ? ctrl.setLinks(resp.data._links, false) : ctrl.setLinks(resp.data._links, true);
   			ctrl.streams = resp.data.streams;
+		}
+
+		ctrl.showTwitchVideo = function(channel){
+			ctrl.videoVisible = true;
+			ctrl.channelName = channel;
+		}
+
+		ctrl.hideTwitchVideo = function(){
+			ctrl.videoVisible = false;
+			ctrl.channelName = "";
 		}
 
 		ctrl.findChannels(ctrl.name);

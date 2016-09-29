@@ -6,7 +6,12 @@ var streamComponent = {
   templateUrl: 'game/stream.html',
   controller: function(){
     var ctrl = this;
-    ctrl.stream.channel.status = ctrl.stream.channel.status.substr(0,35) + "...";
+    var videoVisible = false;
+    ctrl.stream.channel.status = ctrl.stream.channel.status.substr(0,50) + "...";
+
+    ctrl.videoShow = function(){
+      ctrl.videoVisible = true;
+    }
   }
 }
 
