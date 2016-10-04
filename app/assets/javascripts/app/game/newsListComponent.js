@@ -3,12 +3,7 @@ var newsListComponent = {
 		name: '='
 	},
 	controllerAs: 'newsListCtrl',
-	template:'<ul class="collection">'
-				+'<div class = "loader" ng-if = "newsListCtrl.loading"></div>'
-				+'<li ng-repeat = "headline in newsListCtrl.news" class = "collection-item">'
-					+ '<news-component headline = "headline"></news-component>'
-				+'</li>'
-			 +'</ul>',
+	templateUrl: 'game/newsList.html',
 	controller:['BingService',function(BingService){
 		var ctrl = this;
 		ctrl.loading = true;

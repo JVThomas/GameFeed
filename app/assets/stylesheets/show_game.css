@@ -6,19 +6,6 @@
 	padding-right: 0.5em;
 }
 
-.streamContainer{
-	margin: 2em auto;
-}
-
-.streamContainer:hover{
-	background-color: purple;
-	color:white;
-}
-
-.streamDetails{
-	margin-left: 2em;
-}
-
 .gameDescription{
 	padding-bottom: 3em;
 }
@@ -60,6 +47,40 @@
 
 .gameDescription figcaption{
 	font-style: italic;
+}
+
+.newsList li:hover{
+	background-color: purple;
+	color:white;
+}
+
+.newsList .collection-item{
+	background-color: rgb(245,245,245); 
+}
+
+.pointerLink{
+	cursor: pointer;
+}
+
+.streamContainer:hover{
+	background-color: purple;
+	color:white;
+}
+
+.streamDetails{
+	margin-left: 2em;
+}
+
+.streamContainer.row{
+	border-bottom: 1px solid rgb(220,220,220); 
+	padding: 20px 0;
+	width: 100%;
+	margin: 0;
+}
+
+
+.streamList ul{
+	background-color: rgb(245,245,245);
 }
 
 .twitchVideo{

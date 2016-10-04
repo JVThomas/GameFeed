@@ -1,0 +1,13 @@
+<div class = "newsList">
+	<div class = "loader" ng-if = "newsListCtrl.loading"></div>
+	<div ng-show = "newsListCtrl.news.length === 0 && !newsListCtrl.loading">
+		<h4>No results found</h4>
+	</div>
+	<div ng-show = "newsListCtrl.news.length > 0 && !newsListCtrl.loading">
+		<ul class = "collection">
+			<li ng-repeat = "headline in newsListCtrl.news" class = "collection-item">
+				<news-component headline = "headline"></news-component>
+			</li>
+		</ul>
+	</div>
+</div>
