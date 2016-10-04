@@ -1,8 +1,9 @@
 class TwitchService
 
   def channels(title)
-    @resp = Faraday.get 'https://api.twitch.tv/kraken/search/streams' do |req|
-      req.params["query"] = '"' + "#{title}" + '"'
+    @resp = Faraday.get 'https://api.twitch.tv/kraken/streams' do |req|
+      req.params["game"] = "#{title}"
+      req.params["stream_type"] = "live"
       req.headers["client-id"] = ENV["TWITCH_API"]
     end
     @result = JSON.parse(@resp.body)
