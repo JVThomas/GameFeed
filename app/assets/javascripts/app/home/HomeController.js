@@ -1,4 +1,4 @@
-function HomeController($scope, $state, Auth, $cookies, userGames, TwitchService, BingService){
+function HomeController($state, userGames, TwitchService, BingService){
   var ctrl = this;
   ctrl.user;
   ctrl.display = true;
@@ -22,7 +22,7 @@ function HomeController($scope, $state, Auth, $cookies, userGames, TwitchService
 
 }
 
-HomeController.$inject = ['$scope', '$state', 'Auth', "$cookies", 'userGames', 'TwitchService', 'BingService']
+HomeController.$inject = ['$state', 'userGames', 'TwitchService', 'BingService']
 
 angular
   .module('app')

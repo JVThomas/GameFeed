@@ -1,11 +1,9 @@
-function WelcomeController($state, $cookies, Auth){
+function WelcomeController(){
 	var ctrl = this;
 	this.gbLogo = '<%=image_path("gbLogo.png")%>';
 	this.bingLogo = '<%=image_path("binglogo.jpg")%>';
 	this.twitchLogo = '<%=image_path("GlitchIcon_purple.png")%>'
 }
-
-WelcomeController.$inject = ['$state', '$cookies', 'Auth']
 
 angular
   .module('app')
