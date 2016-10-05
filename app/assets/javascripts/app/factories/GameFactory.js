@@ -1,8 +1,6 @@
 function GameFactory($resource){
 	var Game = $resource('http://localhost:3000/games/:giantbomb_id', {giantbomb_id: '@giantbomb_id'},{
-		update: {
-			method: 'PUT'
-		}
+		update: {method: 'PUT'}
 	});
 	return Game;
 }

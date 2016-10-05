@@ -52,7 +52,7 @@ angular
         url: '/home',
         controller: 'HomeController as home',
         templateUrl: 'home/home.html',
-         onEnter: ['$state', 'Auth', function($state, Auth) {
+        onEnter: ['$state', 'Auth', function($state, Auth) {
           Auth.currentUser().then(
             function (user){
              console.log(user);
@@ -61,9 +61,14 @@ angular
               $state.go('welcome');
             }
           );
-        }]
+        }],
+        resolve:{
+          userGames: ['UserGameFactory', function(UserGameFactory){
+            return UserGameFactory.query();
+          }]
+        } 
       })
-      .state('home.searchGames',{
+      .state('searchGames',{
         url: '/search/games',
         controller: 'SearchGamesController as searchGames',
         templateUrl: 'search/searchGames.html',
@@ -78,7 +83,7 @@ angular
           );
         }]
       })
-      .state('home.showGame',{
+      .state('showGame',{
         url: '/games/:linkID',
         controller: 'ShowGameController as showGame',
         templateUrl: 'game/showGame.html',

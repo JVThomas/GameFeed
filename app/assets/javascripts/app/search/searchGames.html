@@ -1,17 +1,19 @@
-<div class="row">
-  <h5>Search For a Game!</h5>
-  <form class="col s12" name = "searchForm">
-    <div ng-if = "searchForm.query.$touched" ng-show = "searchForm.query.$error.required">Query is required</div>
-    <div class = "row">
-      <div class = "input-field col s12">
-        <label for = "query">Query</label>
-        <input name = "query" type = "text" ng-model = "searchGames.query" required = "required">
+<div class = "container">
+  <div class="row">
+    <h5>Search For a Game!</h5>
+    <form class="col s12" name = "searchForm">
+      <div ng-if = "searchForm.query.$touched" ng-show = "searchForm.query.$error.required">Query is required</div>
+      <div class = "row">
+        <div class = "input-field col s12">
+          <label for = "query">Query</label>
+          <input name = "query" type = "text" ng-model = "searchGames.query" required = "required">
+        </div>
       </div>
-    </div>
-    <button class="waves-effect waves-light btn" ng-click = "searchGames.findGame()" ng-disabled = "searchForm.$invalid">Search</button>
-  </form>
-</div>
-<div class = "loader" ng-if = "searchGames.loading"></div>
-<div class = "row" ng-show = "searchGames.panelToggle">
-  <games-results-component></games-results-component>
+      <button class="waves-effect waves-light btn" ng-click = "searchGames.findGame()" ng-disabled = "searchForm.$invalid">Search</button>
+    </form>
+  </div>
+  <div class = "loader" ng-if = "searchGames.loading"></div>
+  <div class = "row" ng-show = "searchGames.panelToggle">
+    <games-results-component></games-results-component>
+  </div>
 </div>

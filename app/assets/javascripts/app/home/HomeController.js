@@ -1,37 +1,28 @@
-function HomeController($scope,$state,Auth,$cookies){
+function HomeController($scope, $state, Auth, $cookies, userGames, TwitchService, BingService){
   var ctrl = this;
   ctrl.user;
   ctrl.display = true;
+  ctrl.userGames = userGames;
+  ctrl.selectedStreamGame;
+  ctrl.selectedNewsGame;
 
-  ctrl.logout = function(){
-    Auth.logout().then(function(resp){
-      $cookies.remove('user');
-      ctrl.user = undefined;
-      $state.go('welcome');
-    },function(error){
-      alert('Oops, something went wrong with logout');
-    });
-  }
+  //ctrl.setSelectedStreamGame
+  //allows users to select game from drop down menu
+  //with each selection the app will retreive streams via twitch
+  //remember to use $scope and $scope.apply to update new streams
 
-  ctrl.setUser = function(currentUser){
-    $cookies.putObject('user',currentUser);
-    ctrl.user = JSON.parse($cookies.get('user'));
-  }
+  //ctrl.setChannel
+  //looking like a method bound to a click event
+  //will have to push the channel name to twitch video component on click
+  //use variable and scope.apply to control data change
 
-  $scope.$on('devise:login', function(event, currentUser) {
-    ctrl.setUser(currentUser);
-  });
-  
-  $scope.$on('devise:new-session', function(event, currentUser) {
-    ctrl.setUser(currentUser)
-  }); 
+  //ctrl.setSelectedNewsGame
+  //more or less the same as selectedStreamGame, but with Bind instead of twitch
+  //scope and apply are required as well
 
-  $scope.$on('devise:new-registration', function(event, user) {
-    ctrl.setUser(user);
-  });
 }
 
-HomeController.$inject = ['$scope', '$state', 'Auth', "$cookies"]
+HomeController.$inject = ['$scope', '$state', 'Auth', "$cookies", 'userGames', 'TwitchService', 'BingService']
 
 angular
   .module('app')

@@ -6,14 +6,14 @@
       <ul class="right hide-on-med-and-down">
         <li><a href="" ui-sref = "login" ng-show = "navbar.user === undefined">Login</a></li>
         <li><a href="" ui-sref = "register" ng-show = "navbar.user === undefined">Register</a></li>
-        <li><a href="" ui-sref = "home.searchGames" ng-show = "navbar.user !== undefined">Search</a></li>
+        <li><a href="" ui-sref = "searchGames" ng-show = "navbar.user !== undefined">Search</a></li>
         <li><a href="" ng-click = "navbar.logout()" ng-show = "navbar.user !== undefined">Logout</a></li>
       </ul>
       <ul class="side-nav" id="mobile">
         <li><a href="" ui-sref = "login" ng-show = "navbar.user === undefined">Login</a></li>
         <li><a href="" ui-sref = "register" ng-show = "navbar.user === undefined">Register</a></li>
         <li><a href="" ng-click = "navbar.logout()" ng-show = "navbar.user !== undefined">Logout</a></li>
-        <li><a href="" ui-sref = "home.searchGames" ng-show = "navbar.user !== undefined"></a></li>
+        <li><a href="" ui-sref = "searchGames" ng-show = "navbar.user !== undefined"></a></li>
       </ul>
     </div>
   </div>

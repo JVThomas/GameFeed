@@ -1,11 +1,12 @@
 function TwitchService ($http) {
 
-  this.getChannels = function(title){
-    return $http.get('http://localhost:3000/twitch/channels.json', 
-      {params:
-        {title: title}
+  this.getChannels = function(title, limit = 25){
+    return $http.get('http://localhost:3000/twitch/channels.json', {
+      params:{
+        title: title,
+        limit: limit
       }
-    );
+    });
   }
 
   this.channelPagination = function(link){

@@ -3,7 +3,7 @@ class TwitchController < ApplicationController
   before_action :set_twitch_service
 
   def channels
-    @result = @twitch_service.channels(params[:title])
+    @result = @twitch_service.channels(params[:title], params[:limit])
     render json: @result
   end
 
