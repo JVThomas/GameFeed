@@ -1,7 +1,7 @@
 function TwitchService ($http) {
 
   this.getChannels = function(title, limit = 25){
-    return $http.get('http://localhost:3000/twitch/channels.json', {
+    return $http.get('http://localhost:3000/api/v1/twitch/channels.json', {
       params:{
         title: title,
         limit: limit

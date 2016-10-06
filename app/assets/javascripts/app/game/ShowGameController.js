@@ -57,7 +57,7 @@ function ShowGameController ($stateParams, $state, GiantbombService, BingService
       },function(error){
         alert(error.statusText);
       });
-      ctrl.userGame = new UserGameFactory({game_id: ctrl.game.id});
+      ctrl.userGame = new UserGameFactory({id: ctrl.game.id});
     }
     ctrl.followStatus = !ctrl.followStatus;
   }

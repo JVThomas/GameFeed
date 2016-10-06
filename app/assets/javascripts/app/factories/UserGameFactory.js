@@ -1,7 +1,6 @@
 function UserGameFactory($resource){
-	var UserGame = $resource('http://localhost:3000/user_games/:id',{id:'@game_id'},
+	var UserGame = $resource('http://localhost:3000/api/v1/user_games/:id',{game_id:'@game_id'},
 		{
-			save: {method: 'POST', params:{id:'@id'}},
 			delete: {method: 'DELETE', params:{id:'@id'}}
 		});
 	return UserGame;
