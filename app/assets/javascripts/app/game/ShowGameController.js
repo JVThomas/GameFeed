@@ -23,7 +23,7 @@ function ShowGameController ($stateParams, $state, GiantbombService, BingService
           $state.go('home.searchGames');
         }else{
           ctrl.data = game;
-          ctrl.data.image.icon_url = ctrl.data.image;
+          ctrl.data.image.icon_url = ctrl.data.image_link;
           ctrl.setFollowStatus();
         }
       });
