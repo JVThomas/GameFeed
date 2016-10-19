@@ -1,6 +1,11 @@
-<div class = "container">
-  <div class = "welcome" ng-if = "'home' | isState">
-    <h5>Work in progress</h5>
+<div class = "row">
+ 	<div class = "twitchVideoHome col s8 pull-s4">
+    <twitch-video ng-if = "homeCtrl.requestBool === homeCtrl.upperBound"></twitch-video>
   </div>
-  <ui-view></ui-view>
+  <div class = "streamListHome col s4 push-s8">
+  	<div class = "streamList">
+  		
+  	</div>
+  	<div class = "loader" ng-if = "homeCtrl.loading"></div>
+  </div>
 </div>

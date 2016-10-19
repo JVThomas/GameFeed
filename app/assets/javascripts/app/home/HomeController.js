@@ -1,28 +1,37 @@
-function HomeController($state, userGames, TwitchService, BingService){
+function HomeController($state, userGames, TwitchService, $scope){
   var ctrl = this;
   ctrl.user;
   ctrl.display = true;
   ctrl.userGames = userGames;
-  ctrl.selectedStreamGame;
-  ctrl.selectedNewsGame;
+  ctrl.homeStreams;
+  ctrl.selectedChannel = -1;
+  ctrl.requestBool = 0;
+  ctrl.requestUpperBound = ctrl.userGames.length + 1
+  
+  ctrl.setHomeStreams = function(){
+    results = [];  
+    ctrl.userGames.forEach(function(userGame){
+      TwitchService.getChannels(userGame.game.name, 3).then(function(success){
+        success.data.streams.length > 0 ? results.push(success.data.streams) : results;
+        ctrl.requestBool += 1;
+      },function(error){
+        console.log(error.statusText());
+        ctrl.requestBool += 1; 
+      });
+    });
+    ctrl.homeStreams = [].concat.apply([], ctrl.homeStreams);
+    ctrl.requestBool += 1;
+    ctrl.homeStreams.length > 0 ? ctrl.selectedChannel = 0 : ctrl.selectedChannel;
+  }
 
-  //ctrl.setSelectedStreamGame
-  //allows users to select game from drop down menu
-  //with each selection the app will retreive streams via twitch
-  //remember to use $scope and $scope.apply to update new streams
+  ctrl.selectChannel = function(index){
+    ctrl.selectedChannel = index;
+  }
 
-  //ctrl.setChannel
-  //looking like a method bound to a click event
-  //will have to push the channel name to twitch video component on click
-  //use variable and scope.apply to control data change
-
-  //ctrl.setSelectedNewsGame
-  //more or less the same as selectedStreamGame, but with Bind instead of twitch
-  //scope and apply are required as well
-
+  ctrl.setHomeStreams();
 }
 
-HomeController.$inject = ['$state', 'userGames', 'TwitchService', 'BingService']
+HomeController.$inject = ['$state', 'userGames', 'TwitchService', '$scope']
 
 angular
   .module('app')

@@ -49,8 +49,15 @@ angular
         }]
       })
       .state('home',{
+        resolve:{
+          userGames: ['UserGameFactory', function(UserGameFactory){
+            return UserGameFactory.query().$promise.then(function(userGames){
+              return userGames;
+            });
+          }]
+        }, 
         url: '/home',
-        controller: 'HomeController as home',
+        controller: 'HomeController as homeCtrl',
         templateUrl: 'home/home.html',
         onEnter: ['$state', 'Auth', function($state, Auth) {
           Auth.currentUser().then(
@@ -61,12 +68,7 @@ angular
               $state.go('welcome');
             }
           );
-        }],
-        resolve:{
-          userGames: ['UserGameFactory', function(UserGameFactory){
-            return UserGameFactory.query();
-          }]
-        } 
+        }]
       })
       .state('searchGames',{
         url: '/search/games',
