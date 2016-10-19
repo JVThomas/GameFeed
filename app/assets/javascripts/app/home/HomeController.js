@@ -1,15 +1,25 @@
-function HomeController($state, userGames, TwitchService, $scope){
+function HomeController($state, userGames, TwitchService, $scope, $timeout){
   var ctrl = this;
   ctrl.homeStreams;
-  ctrl.selectedChannel = -1;
+  ctrl.selectedStreamIndex = undefined;
+  ctrl.selectedStream = undefined;
+  ctrl.showVideo = false;
 
-  ctrl.selectChannel = function(index){
-    ctrl.selectedChannel = index;
+  ctrl.selectStream = function(index){
+    if (index !== ctrl.selectedStreamIndex){
+      ctrl.showVideo = false;
+      debugger;
+      ctrl.selectedStream = ctrl.homeStreams[index].channel.name;
+      ctrl.selectedStreamIndex = index;
+      ctrl.showVideo = true;
+    }
   }
 
   ctrl.setHomeStreams = function(streams){
     ctrl.homeStreams = [].concat.apply([], streams);
-    ctrl.homeStreams.length > 0 ? ctrl.selectedChannel = 0 : ctrl.selectedChannel = -1;
+    ctrl.homeStreams.length > 0 ? ctrl.selectedStreamIndex = 0 : ctrl.selectedStreamIndex;
+    ctrl.selectedStream = ctrl.homeStreams[0].channel.name
+    ctrl.showVideo = true;
   }
 
   ctrl.findHomeStreams = function(userGames){
@@ -19,6 +29,7 @@ function HomeController($state, userGames, TwitchService, $scope){
       TwitchService.getChannels(userGame.game.name, 3).then(function(success){
         success.data.streams.length > 0 ? streams.push(success.data.streams) : streams;
       },function(error){
+        console.log(error.statusText);
         return true;
       }).then(function(){
         requestCount += 1;
@@ -37,7 +48,7 @@ function HomeController($state, userGames, TwitchService, $scope){
 
 }
 
-HomeController.$inject = ['$state', 'userGames', 'TwitchService', '$scope']
+HomeController.$inject = ['$state', 'userGames', 'TwitchService', '$scope', '$timeout']
 
 angular
   .module('app')

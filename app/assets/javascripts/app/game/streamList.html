@@ -13,5 +13,7 @@
 
 <div class = "twitchVideo" ng-if = "streamListCtrl.videoVisible">
 	<div><a href="" ng-click = "streamListCtrl.hideTwitchVideo()">Back</a></div>
-	<twitch-video-component channel = "streamListCtrl.channelName"></twitch-video-component>	
+	<div class = "twitchVideoContainer">
+		<twitch-video-component channel = "streamListCtrl.channelName"></twitch-video-component>
+	</div>	
 </div>

@@ -1,6 +1,6 @@
 var twitchVideoComponent = {
 	bindings:{
-		channel: "="
+		channel: "<"
 	},
 	templateUrl: 'game/twitchVideo.html',
 	controllerAs: 'twitchVideoCtrl',

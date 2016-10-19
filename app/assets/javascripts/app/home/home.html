@@ -1,11 +1,32 @@
-<div class = "row">
- 	<div class = "twitchVideoHome col s8 pull-s4">
-    <twitch-video ng-if = "homeCtrl.requestBool === homeCtrl.upperBound"></twitch-video>
-  </div>
-  <div class = "streamListHome col s4 push-s8">
-  	<div class = "streamList">
-  		
-  	</div>
-  	<div class = "loader" ng-if = "homeCtrl.loading"></div>
-  </div>
+<div class = "wrapper">
+	<div class = "loader" ng-if = 'homeCtrl.selectedStreamIndex === undefined'></div>
+	<div class = "row" ng-if = 'homeCtrl.selectedStreamIndex != undefined'>
+		<div class = "homeHeader s12"> <h3>Homepage</h3></div>
+		<div class = 'noStreamResults' ng-if = 'homeCtrl.selectedStreamIndex === undefined'>No videos found</div>
+		
+		<div class = "row" ng-if = 'homeCtrl.selectedStreamIndex != undefined'>	
+			
+			<div class = "twitchVideoContainer col s8 pull-4">
+				<div class = "loader" ng-if = "!homeCtrl.showVideo"></div>
+				<twitch-video-component
+					ng-if = 'homeCtrl.showVideo' 
+					channel = "homeCtrl.selectedStream">
+				</twitch-video-component>
+			</div>
+
+			<div class = "sidebarStreamList col s4 push-8">
+				<ul class = "homeStreamsList">
+					<li ng-repeat = "stream in homeCtrl.homeStreams">
+						<home-stream-component 
+							class = "pointerLink" 
+							stream = "stream" 
+							ng-click = "homeCtrl.selectStream($index)">
+						</home-stream-component>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	
+	</div>
 </div>
