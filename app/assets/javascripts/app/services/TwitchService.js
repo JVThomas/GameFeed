@@ -14,6 +14,7 @@ function TwitchService ($http) {
       {params: {link:link} }
     );
   }
+   
 }
 
 TwitchService.$inject = ['$http'];

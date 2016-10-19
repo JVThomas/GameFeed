@@ -50,7 +50,7 @@ angular
       })
       .state('home',{
         resolve:{
-          userGames: ['UserGameFactory', function(UserGameFactory){
+          userGames: ['UserGameFactory', 'TwitchService', function(UserGameFactory, TwitchService){
             return UserGameFactory.query().$promise.then(function(userGames){
               return userGames;
             });

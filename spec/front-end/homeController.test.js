@@ -19,7 +19,7 @@ describe('HomeController', function() {
 				'$state':$state,
 				'TwitchService': TwitchService,
 				'userGames': userGames,
-
+				'$scope': $rootScope
 			});
 		}
 	}));
