@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe BingController, type: :controller do
+RSpec.describe Api::V1::BingController, type: :controller do
 	describe 'GET news' do
 		it 'returns latest news stories in JSON format' do
 			user = FactoryGirl.create(:user)

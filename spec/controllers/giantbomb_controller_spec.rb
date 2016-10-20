@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe GiantbombController, type: :controller do
+RSpec.describe Api::V1::GiantbombController, type: :controller do
 	
 	describe 'GET games' do
 		it 'returns a list of games in JSON format' do

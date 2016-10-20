@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe TwitchController, type: :controller do
+RSpec.describe Api::V1::TwitchController, type: :controller do
 	
 	describe 'GET channels' do
 		it 'returns a list of 10 channels based on a query' do
