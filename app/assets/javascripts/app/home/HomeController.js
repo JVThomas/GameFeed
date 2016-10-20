@@ -8,10 +8,11 @@ function HomeController($state, userGames, TwitchService, $scope, $timeout){
   ctrl.selectStream = function(index){
     if (index !== ctrl.selectedStreamIndex){
       ctrl.showVideo = false;
-      debugger;
-      ctrl.selectedStream = ctrl.homeStreams[index].channel.name;
-      ctrl.selectedStreamIndex = index;
-      ctrl.showVideo = true;
+      $timeout(function(){
+        ctrl.selectedStream = ctrl.homeStreams[index].channel.name;
+        ctrl.selectedStreamIndex = index;
+        ctrl.showVideo = true;
+      },500);
     }
   }
 

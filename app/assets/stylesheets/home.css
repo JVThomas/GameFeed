@@ -5,8 +5,8 @@
 }
 
 .streamCard:hover{
+	color: white;
 	background-color: purple;
-	color:white;
 }
 
 .sidebarStreamList{

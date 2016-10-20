@@ -10,7 +10,7 @@ function TwitchService ($http) {
   }
 
   this.channelPagination = function(link){
-    return $http.get('http://localhost:3000/twitch/page.json',
+    return $http.get('http://localhost:3000/api/v1/twitch/page.json',
       {params: {link:link} }
     );
   }

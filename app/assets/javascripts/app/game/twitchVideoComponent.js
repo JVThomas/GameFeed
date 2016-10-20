@@ -4,10 +4,13 @@ var twitchVideoComponent = {
 	},
 	templateUrl: 'game/twitchVideo.html',
 	controllerAs: 'twitchVideoCtrl',
-	controller:function() {
+	controller:['$scope', function($scope) {
 		var ctrl = this;
 		ctrl.videoSource = "http://player.twitch.tv/?channel=" + ctrl.channel;
-	}
+		$scope.$on(function(newValue){
+			debugger;
+		})
+	}]
 }
 
 angular

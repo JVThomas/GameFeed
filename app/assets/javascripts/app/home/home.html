@@ -8,19 +8,20 @@
 			
 			<div class = "twitchVideoContainer col s8 pull-4">
 				<div class = "loader" ng-if = "!homeCtrl.showVideo"></div>
-				<twitch-video-component
-					ng-if = 'homeCtrl.showVideo' 
-					channel = "homeCtrl.selectedStream">
-				</twitch-video-component>
+				<div class = "twitchVideoPlayer" ng-if = "homeCtrl.showVideo">
+					<twitch-video-component
+						channel = "homeCtrl.selectedStream">
+					</twitch-video-component>
+				</div>
 			</div>
 
 			<div class = "sidebarStreamList col s4 push-8">
 				<ul class = "homeStreamsList">
 					<li ng-repeat = "stream in homeCtrl.homeStreams">
 						<home-stream-component 
-							class = "pointerLink" 
 							stream = "stream" 
-							ng-click = "homeCtrl.selectStream($index)">
+							ng-click = "homeCtrl.selectStream($index)"
+						>
 						</home-stream-component>
 					</li>
 				</ul>

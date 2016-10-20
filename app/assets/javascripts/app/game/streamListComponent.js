@@ -25,6 +25,7 @@ var streamListComponent = {
 				ctrl.loading = false;
   				ctrl.setChannels(resp);
 			}, function(error){
+					debugger;
   				alert(error.statusText);
 			});  
 			}
