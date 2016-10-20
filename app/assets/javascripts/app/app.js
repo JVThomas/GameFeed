@@ -49,13 +49,6 @@ angular
         }]
       })
       .state('home',{
-        resolve:{
-          userGames: ['UserGameFactory', 'TwitchService', function(UserGameFactory, TwitchService){
-            return UserGameFactory.query().$promise.then(function(userGames){
-              return userGames;
-            });
-          }]
-        }, 
         url: '/home',
         controller: 'HomeController as homeCtrl',
         templateUrl: 'home/home.html',

@@ -1,6 +1,7 @@
-function HomeController($state, userGames, TwitchService, $scope, $timeout){
+function HomeController(UserGameFactory, TwitchService, $timeout){
   var ctrl = this;
   ctrl.homeStreams;
+  ctrl.userGames;
   ctrl.selectedStreamIndex = undefined;
   ctrl.selectedStream = undefined;
   ctrl.showVideo = false;
@@ -23,19 +24,10 @@ function HomeController($state, userGames, TwitchService, $scope, $timeout){
     ctrl.showVideo = true;
   }
 
-  ctrl.findHomeStreams = function(userGames){
-    var requestCount = 0;
-    var streams = [];
-    userGames.forEach(function(userGame){
-      TwitchService.getChannels(userGame.game.name, 3).then(function(success){
-        success.data.streams.length > 0 ? streams.push(success.data.streams) : streams;
-      },function(error){
-        console.log(error.statusText);
-        return true;
-      }).then(function(){
-        requestCount += 1;
-        ctrl.AsyncCheck(userGames, requestCount,streams);
-      });
+  ctrl.getUserGames = function(){
+    UserGameFactory.query({},function(userGames){
+      ctrl.userGames = userGames;
+      ctrl.sendStreamRequest();
     });
   }
 
@@ -45,11 +37,31 @@ function HomeController($state, userGames, TwitchService, $scope, $timeout){
     }
   }
 
-  ctrl.findHomeStreams(userGames);
+  ctrl.sendStreamRequest = function(){
+    var requestCount = 0;
+    var streams = [];
+    ctrl.userGames.forEach(function(userGame){
+      TwitchService.getChannels(userGame.game.name, 3).then(function(success){
+        success.data.streams.length > 0 ? streams.push(success.data.streams) : streams;
+      },function(error){
+        console.log(error.statusText);
+        return true;
+      }).then(function(){
+        requestCount += 1;
+        ctrl.AsyncCheck(ctrl.userGames, requestCount,streams);
+      });
+    });
+  }
+
+  ctrl.findHomeStreams = function(){
+    ctrl.getUserGames();
+  }
+
+  ctrl.findHomeStreams();
 
 }
 
-HomeController.$inject = ['$state', 'userGames', 'TwitchService', '$scope', '$timeout']
+HomeController.$inject = ['UserGameFactory', 'TwitchService', '$timeout']
 
 angular
   .module('app')
