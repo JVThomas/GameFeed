@@ -29,3 +29,8 @@
   width: 100%;
   height: 100%;
 }
+
+.channelStatus{
+  width: 80%;
+  overflow-x: hidden;
+}
