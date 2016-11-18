@@ -17,7 +17,7 @@ describe ('GiantbombService', function(){
 			var data = {games:['pong']};
 
 			//catch backend request and respond with mocked return data
-			httpBackend.whenGET('http://localhost:3000/giantbomb/games/search.json').respond(data);
+			httpBackend.whenGET('http://localhost:3000/api/v1/giantbomb/games/search.json').respond(data);
 
 			//make the actual method call
 			GiantbombService.getGames().then(function(response){
@@ -36,7 +36,7 @@ describe ('GiantbombService', function(){
 				game: 'Street Fighter'
 			}
 
-			httpBackend.whenGET('http://localhost:3000/giantbomb/game/search.json').respond(data);
+			httpBackend.whenGET('http://localhost:3000/api/v1/giantbomb/game/search.json').respond(data);
 
 			GiantbombService.getGame().then(function(response){
 				result = response.data;

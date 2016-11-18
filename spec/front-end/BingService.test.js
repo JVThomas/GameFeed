@@ -12,7 +12,7 @@ describe('BingService', function(){
 		var result, data;
 		data = {result: [{name: "test1"},{name: "test2"}]};
 
-		$httpBackend.whenGET('http://localhost:3000/bing/news.json').respond(data);
+		$httpBackend.whenGET('http://localhost:3000/api/v1/bing/news.json').respond(data);
 
 		BingService.getNews().then(function(response){
 			result = response.data;
