@@ -25,7 +25,7 @@ function HomeController(UserGameFactory, TwitchService, $timeout){
   }
 
   ctrl.getUserGames = function(){
-    UserGameFactory.query({}).then(function(userGames){
+    UserGameFactory.query({},function(userGames){
       ctrl.userGames = userGames;
       ctrl.sendStreamRequest();
     });

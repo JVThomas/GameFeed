@@ -37,6 +37,12 @@ describe('HomeController', function() {
 		}
 	}));
 
+	describe('#findHomeStreams()', function(){
+		it('calls on getUserGames to begin stream retreival', function(){
+			spyOn(homeCtrl, 'getUserStreams').and.returnValue('return');
+			expect(homeCtrl.getUserStreams).toHaveBeenCalled();
+		})
+	});
 	describe('#getUserGames()', function(){
 		it("obtains userGames from backend", function(){
 			var homeCtrl = createController();
@@ -48,4 +54,5 @@ describe('HomeController', function() {
 			expect(homeCtrl.sendStreamRequest).toHaveBeenCalled();
 		});
 	});
+
 });
