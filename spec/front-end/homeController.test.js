@@ -10,6 +10,14 @@ describe('HomeController', function() {
 		$timeout = $injector.get('$timeout');
 		$q = $injector.get('$q');
 		userGames = [{name: 'Street Fighter V'},{name: 'Overwatch'}];
+		//UserGameFactory = {
+		/*	query: function(){
+				var deferred = $q.defer();
+				deferred.resolve(userGames);
+				return deferred.promise;
+			}
+		}*/
+
 		UserGameFactory = {
 			query: function(){
 				var deferred = $q.defer();
@@ -17,6 +25,8 @@ describe('HomeController', function() {
 				return deferred.promise;
 			}
 		}
+
+		spyOn(UserGameFactory, 'query').and.callThrough();
 
 		createController = function(){
 			return $controller('HomeController',{
@@ -30,9 +40,12 @@ describe('HomeController', function() {
 	describe('#getUserGames()', function(){
 		it("obtains userGames from backend", function(){
 			var homeCtrl = createController();
+			spyOn(homeCtrl, 'sendStreamRequest').and.returnValue("return");
 			homeCtrl.getUserGames();
 			$rootScope.$apply();
+			expect(UserGameFactory.query).toHaveBeenCalled();
 			expect(homeCtrl.userGames).toEqual(userGames);
+			expect(homeCtrl.sendStreamRequest).toHaveBeenCalled();
 		});
 	});
 });
