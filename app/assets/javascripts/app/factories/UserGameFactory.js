@@ -1,5 +1,5 @@
 function UserGameFactory($resource){
-	var UserGame = $resource('http://localhost:3000/api/v1/user_games/:id',{game_id:'@game_id'},
+	var UserGame = $resource('http://gamefeed.herokuapp.com/api/v1/user_games/:id',{game_id:'@game_id'},
 		{
 			delete: {method: 'DELETE', params:{id:'@id'}}
 		});
