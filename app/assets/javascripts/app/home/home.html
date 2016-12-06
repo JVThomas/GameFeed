@@ -1,11 +1,10 @@
-<div class = "wrapper">
-	<div class = "loader" ng-if = 'homeCtrl.selectedStreamIndex === undefined'></div>
+<div class = "container">
+	<div class = "loader" ng-if = 'homeCtrl.selectedStreamIndex === undefined && homeCtrl.selectedStreamIndex !== -1'></div>
 	<div class = "row" ng-if = 'homeCtrl.selectedStreamIndex != undefined'>
-		<div class = "homeHeader s12"> <h3>Homepage</h3></div>
-		<div class = 'noStreamResults' ng-if = 'homeCtrl.selectedStreamIndex === undefined'>No videos found</div>
 		
-		<div class = "row" ng-if = 'homeCtrl.selectedStreamIndex != undefined'>	
-			
+		<div class = "homeHeader s12"> <h3>Homepage</h3></div>
+		
+		<div class = "row" ng-if = 'homeCtrl.selectedStreamIndex !== -1'>	
 			<div class = "twitchVideoContainer col s8 pull-4">
 				<div class = "loader" ng-if = "!homeCtrl.showVideo"></div>
 				<div class = "twitchVideoPlayer" ng-if = "homeCtrl.showVideo">
@@ -14,7 +13,7 @@
 					</twitch-video-component>
 				</div>
 			</div>
-
+			
 			<div class = "sidebarStreamList col s4 push-8">
 				<ul class = "homeStreamsList">
 					<li ng-repeat = "stream in homeCtrl.homeStreams">
@@ -25,8 +24,9 @@
 					</li>
 				</ul>
 			</div>
-
 		</div>
-	
+
+		<div class = 'noStreamResults' ng-if = 'homeCtrl.selectedStreamIndex === -1'>No videos found</div>
 	</div>
+
 </div>

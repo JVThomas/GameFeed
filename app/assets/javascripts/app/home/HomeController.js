@@ -19,7 +19,7 @@ function HomeController(UserGameFactory, TwitchService, $timeout){
 
   ctrl.setHomeStreams = function(streams){
     ctrl.homeStreams = [].concat.apply([], streams);
-    ctrl.homeStreams.length > 0 ? ctrl.selectedStreamIndex = 0 : ctrl.selectedStreamIndex;
+    ctrl.homeStreams.length > 0 ? ctrl.selectedStreamIndex = 0 : ctrl.selectedStreamIndex = -1;
     ctrl.selectedStream = ctrl.homeStreams[0].channel.name
     ctrl.showVideo = true;
   }
@@ -40,24 +40,25 @@ function HomeController(UserGameFactory, TwitchService, $timeout){
   ctrl.sendStreamRequest = function(){
     var requestCount = 0;
     var streams = [];
-    ctrl.userGames.forEach(function(userGame){
-      TwitchService.getChannels(userGame.game.name, 3).then(function(success){
-        success.data.streams.length > 0 ? streams.push(success.data.streams) : streams;
-      },function(error){
-        console.log(error.statusText);
-        return true;
-      }).then(function(){
-        requestCount += 1;
-        ctrl.AsyncCheck(ctrl.userGames, requestCount,streams);
+    if(ctrl.userGames.length > 0){
+      ctrl.userGames.forEach(function(userGame){
+        TwitchService.getChannels(userGame.game.name, 3).then(function(success){
+          success.data.streams.length > 0 ? streams.push(success.data.streams) : streams;
+        },function(error){
+          console.log(error.statusText);
+          return true;
+        }).then(function(){
+          requestCount += 1;
+          ctrl.AsyncCheck(ctrl.userGames, requestCount,streams);
+        });
       });
-    });
+    }
+    else{
+      ctrl.selectedStreamIndex = -1;
+    }
   }
 
-  ctrl.findHomeStreams = function(){
-    ctrl.getUserGames();
-  }
-
-  ctrl.findHomeStreams();
+  ctrl.getUserGames();
 
 }
 
