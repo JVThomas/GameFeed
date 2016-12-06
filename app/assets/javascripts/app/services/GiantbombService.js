@@ -1,7 +1,7 @@
 function GiantbombService ($http){
   
   this.getGames = function(query){
-    return $http.get('http://gamefeedapp.herokuapp.com/api/v1/giantbomb/games/search.json', 
+    return $http.get('https://gamefeedapp.herokuapp.com/api/v1/giantbomb/games/search.json', 
       {params:
         {query: query}
       }
@@ -9,7 +9,7 @@ function GiantbombService ($http){
   }
 
   this.getGame = function(url){
-    return $http.get('http://gamefeedapp.herokuapp.com/api/v1/giantbomb/game/search.json', 
+    return $http.get('https://gamefeedapp.herokuapp.com/api/v1/giantbomb/game/search.json', 
       {params:
         {data: url}
       }
