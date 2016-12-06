@@ -4,6 +4,8 @@ A side project of mine, I came up with this idea because I wanted to play with A
 
 As of now the app is built with Rails and AngularJS (1.5). You can fork it if you wish, but you'll have to sign up for your own personal API keys and save it in a .env file.
 
+You can find an running demo of what I have so far here: https://gamefeedapp.herokuapp.com/#/
+
 Some upcoming features that I'm working on are
   * Allowing users to follow games that they like
   * User feed that displays suggested content based on followed games
