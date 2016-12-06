@@ -1,7 +1,7 @@
 function BingService($http){
   
   this.getNews = function(title){
-    return $http.get('http://localhost:3000/api/v1/bing/news.json', 
+    return $http.get('http://gamefeedapp.herokuapp.com/api/v1/bing/news.json', 
       {params:
         {title: title}
       }
