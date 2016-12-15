@@ -46,14 +46,12 @@ function ShowGameController ($stateParams, $state, GiantbombService, BingService
   ctrl.changeFollowStatus = function(){
     if (ctrl.followStatus === false){
       ctrl.userGame.$save().then(function(resp){
-        console.log(resp);
       },function(error){
         alert(error.statusText);
       });
     }
     else{
       ctrl.userGame.$delete().then(function(resp){
-        console.log(resp);
       },function(error){
         alert(error.statusText);
       });
@@ -65,7 +63,6 @@ function ShowGameController ($stateParams, $state, GiantbombService, BingService
   ctrl.createGameFactory = function(){
     ctrl.game = new GameFactory({game: ctrl.data});
     ctrl.game.$save().then(function(resp){
-      console.log(resp);
       ctrl.setFollowStatus();
     },function(error){
       alert(error.statusText);
@@ -74,7 +71,6 @@ function ShowGameController ($stateParams, $state, GiantbombService, BingService
 
   ctrl.updateGameFactory = function(){
     ctrl.game.$update().then(function(resp){
-      console.log(resp);
       ctrl.setFollowStatus();
     },function(error){
       alert(error.statusText);

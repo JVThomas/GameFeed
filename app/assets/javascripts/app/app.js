@@ -55,7 +55,6 @@ angular
         onEnter: ['$state', 'Auth', function($state, Auth) {
           Auth.currentUser().then(
             function (user){
-             console.log(user);
             }, function (error){
               console.log(error.statusText);
               $state.go('welcome');
@@ -70,7 +69,6 @@ angular
         onEnter: ['$state', 'Auth', function($state, Auth) {
           Auth.currentUser().then(
             function (user){
-             console.log(user);
             }, function (error){
               console.log(error.statusText);
               $state.go('welcome');
@@ -85,7 +83,6 @@ angular
         onEnter: ['$state', 'Auth', function($state, Auth) {
           Auth.currentUser().then(
             function (user){
-             console.log(user);
             }, function (error){
               console.log(error.statusText);
               $state.go('welcome');
